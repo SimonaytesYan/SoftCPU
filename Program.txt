@@ -6,3 +6,4 @@ push 2
 add
 div
 out
+hlt
