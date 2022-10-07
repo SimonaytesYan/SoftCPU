@@ -21,23 +21,23 @@ const int MAX_COMAND_LENGHT = 100;
 
 int main()
 {
-    FILE* logs         = fopen(LOGS, "w");
+    FILE* logs         = fopen(LOGS,    "w");
     FILE* program_file = fopen(PROGRAM, "r");
 
     if (logs == nullptr)
     {
-        printf("Error while logs open\n");
+        fprintf(stderr, "Error while logs open\n");
         return 0;
     }
     if (program_file == nullptr)
     {
-        printf("Error while program file open\n");
+        LogPrintf("Error while program file open\n");
         return 0;
     }
     LogPrintf("Normal open files\n");
 
     int   file_size = get_text_size(PROGRAM);
-    char* all_text = (char*) calloc(file_size, sizeof(char));
+    char* all_text  = (char*) calloc(file_size, sizeof(char));
 
     if (all_text == nullptr)
     {
@@ -47,15 +47,15 @@ int main()
 
     int lines_number  = gettext(all_text, file_size, program_file);
     LogPrintf("Took program\n");
-    const char **text          = (const char**)calloc(lines_number, sizeof(char*)); 
+    const char **text = (const char**)calloc(lines_number, sizeof(char*)); 
 
     getlines_from_text(text, all_text);
     LogPrintf("Splited by lines\n");
 
     LogPrintf("Line number = %d\n\n", lines_number);
 
-    int* comands = (int*)calloc(lines_number * 2 + 1, sizeof(int));
-    int comand_index = 0;
+    int* comands      = (int*)calloc(lines_number * 2 + 1, sizeof(int));
+    int  comand_index = 0;
     for(int line = 0; line < lines_number; line++)
     {
         char cmd[MAX_COMAND_LENGHT] = "";

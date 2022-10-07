@@ -7,6 +7,7 @@ typedef int Elem;
 #include "Libs\Stack.h"
 #include "Libs\ComandSystem.h"
 
+
 struct CPU
 {
     int*  code           = nullptr;
@@ -67,56 +68,63 @@ int OpenFileAndCheckHeader(Header *header, FILE** executable_file)
     return 0;
 }
 
-int GetExecutableFilePointerFromCMDArgs(FILE** fp, int argc, char** argv[])
+int GetExecFileFromCMDArgs(FILE** fp, int argc, char* argv[])
 {
     if (fp == nullptr)
     {
         LogPrintf("\nFp damaged\n");
-        return 1;
+        return -1;
     }
 
     if (argv == nullptr)
     {
         LogPrintf("\nArgv damaged\n");
-        return 1;
+        return -1;
     }
 
     if (*argv == nullptr)
     {
         LogPrintf("\nargv = nullptr\n");
-        return 1;
+        return -1;
     }
     
     if (argc != 2)
     {
         LogPrintf("\nWrong number of cmd arguments\n");
-        return 1;
+        return -1;
     }
 
-    char* executable_file_name = (*argv)[1];
+    char* executable_file_name = argv[1];
 
     *fp = fopen(executable_file_name, "rb");
     if (*fp == nullptr)
     {
         LogPrintf("\nError during executable file open");
-        return 1;
+        return -1;
     }
 
     return 0;
 }
 
+#define CaseCMD(CMD, oper)                       \
+    case CMD:                                    \
+        a1 = StackPop(&cpu->stk);                \
+        a2 = StackPop(&cpu->stk);                \
+        StackPush(&cpu->stk, a2 oper a1);        \
+    break;
+
 void Run(CPU* cpu)
 {
     Elem a1 = 0;
     Elem a2 = 0;
+
     while (cpu->pc < cpu->number_comands)
     {
         int cmd = cpu->code[cpu->pc++] & CMD_MASK;
-        //printf("cmd = %d\n", cmd);
+
         switch(cmd)
         {
             case CMD_PUSH:
-                //printf("Push\n");
                 if (cpu->pc < cpu->number_comands - 1)
                 {
                     StackPush(&cpu->stk, cpu->code[cpu->pc++]);
@@ -128,26 +136,11 @@ void Run(CPU* cpu)
                 }
             break;
 
-            case CMD_ADD:
-                StackPush(&cpu->stk, StackPop(&cpu->stk) + StackPop(&cpu->stk));
-            break;
-
-            case CMD_DIV:
-                a1 = StackPop(&cpu->stk);
-                a2 = StackPop(&cpu->stk);
-                StackPush(&cpu->stk, a2 / a1);
-            break;
-
-            case CMD_MUL:
-                StackPush(&cpu->stk, StackPop(&cpu->stk) * StackPop(&cpu->stk));
-            break;
-
-            case CMD_SUB:
-                a1 = StackPop(&cpu->stk);
-                a2 = StackPop(&cpu->stk);
-                StackPush(&cpu->stk, a2 - a1); 
-            break;
-
+            CaseCMD(CMD_ADD, +);
+            CaseCMD(CMD_SUB, -);
+            CaseCMD(CMD_MUL, *);
+            CaseCMD(CMD_DIV, /);
+            
             case CMD_HLT:
                 return;
             break;
@@ -162,22 +155,22 @@ void Run(CPU* cpu)
         }
     }
 }
+#undef CaseCMD
 
 int main(int argc, char* argv[])
 {
     FILE* executable_file = nullptr;
-    if (GetExecutableFilePointerFromCMDArgs(&executable_file, argc, &argv) != 0)
-        return 0;
+    if (GetExecFileFromCMDArgs(&executable_file, argc, argv) != 0)
+        return -1234;
 
     Header header = {};
     if (OpenFileAndCheckHeader(&header, &executable_file) != 0)
-        return 0;
+        return -1234;
 
     CPU cpu = {};
     if (GetCPUFromFile(&cpu, header.comands_number, executable_file) != 0)
-        return 0;
+        return -1234;
 
     Run(&cpu);
-    int k = 0;
     system("Pause");
 }

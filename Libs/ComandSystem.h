@@ -22,4 +22,6 @@ struct Header
 const int SIGNATURE   = 'S' * 256 + 'Y';
 const int ASM_VERSION = 0;
 
+
+
 #endif //__COMAND_SYSTEM_SYM__

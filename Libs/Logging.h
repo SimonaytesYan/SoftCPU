@@ -8,6 +8,14 @@ const char LOGS[] = "Logs.txt";
 
 FILE* logs_file = fopen(LOGS, "w");
 
+int OpenLogFile()
+{
+}
+
+int CloseLogFile()
+{
+}
+
 size_t LogPrintf(const char *format, ...)
 {
     va_list args;
