@@ -5,11 +5,12 @@
 
 #include "..\Errors\Errors.h"
 
-#define CHECK(cond, msg, return_code)   \
-    if (cond)                           \
-    {                                   \
-        LogPrintf(msg);                 \
-        return return_code;             \
+#define CHECK(cond, msg, return_code)                                                          \
+    if (cond)                                                                                  \
+    {                                                                                          \
+        LogPrintf("In %s in %s(%d)\n", __PRETTY_FUNCTION__, __FILE__, __LINE__);               \
+        LogPrintf(msg);                                                                        \
+        return return_code;                                                                    \
     }                               
 
 

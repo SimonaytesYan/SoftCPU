@@ -1,0 +1,169 @@
+Stack = 0060FEB0
+Chech status = 2108
+At size_t ChangeStackData(Stack*, int) in Libs\Stack.h(406)
+Negative or poison size
+Negative or poison capacity
+Size is bigger then capacity
+Pointer to stack.data = nullptr
+Bebug info from stack damaged
+
+Stack = 0060FEB0
+Chech status = 32
+At size_t StackConstructor(Stack*, int, int, const char*, const char*, const char*) in Libs\Stack.h(265)
+Pointer to stack.data = nullptr
+
+
+Stack = 0060FEB0
+Chech status = 32
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+Pointer to stack.data = nullptr
+
+
+Stack = 0060FEB0
+Chech status = 32
+At size_t StackResizeUp(Stack*) in Libs\Stack.h(293)
+Pointer to stack.data = nullptr
+
+
+Stack = 0060FEB0
+Chech status = 32
+At size_t ChangeStackData(Stack*, int) in Libs\Stack.h(406)
+Pointer to stack.data = nullptr
+
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeUp(Stack*) in Libs\Stack.h(305)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t ChangeStackData(Stack*, int) in Libs\Stack.h(406)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(348)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(348)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t ChangeStackData(Stack*, int) in Libs\Stack.h(406)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(348)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(348)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(311)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackPush(Stack*, Elem) in Libs\Stack.h(326)
+
+Stack = 0060FEB0
+Chech status = 0
+At Elem StackPop(Stack*, size_t*) in Libs\Stack.h(356)
+
+Stack = 0060FEB0
+Chech status = 0
+At size_t StackResizeDown(Stack*) in Libs\Stack.h(332)
+

@@ -19,14 +19,10 @@ int main()
     Stack stk = {};
     StackCtor(&stk, 0);
 
-    FILE* logs         = fopen(LOGS, "w");
+    CHECK(OpenLogFile("InterprLogs.txt"), "Error during open logfile", -1);
+
     FILE* program_file = fopen(program, "r");
 
-    if (logs == nullptr)
-    {
-        printf("Error while logs open\n");
-        return 0;
-    }
     if (program_file == nullptr)
     {
         printf("Error while program file open\n");
@@ -111,5 +107,5 @@ int main()
         DUMP_STACK(stk);
     }
     
-    fclose(logs);
+    CloseLogFile();
 }
