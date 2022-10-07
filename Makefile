@@ -1,5 +1,5 @@
 
-all: assembler  file_work
+all: assembler processor file_work
 	.\Exe\Comp.exe
 	.\Exe\Start.exe a.sy
 

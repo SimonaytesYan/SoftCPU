@@ -14,8 +14,6 @@ struct CPU
     Stack stk            = {};
 };
 
-const int CMD_MASK = 0xFF;
-
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 {
     cpu->stk = {};
@@ -61,26 +59,41 @@ int GetExecFileFromCMDArgs(FILE** fp, int argc, char* argv[])
 
 #define CaseCMD(CMD, oper)                       \
     case CMD:                                    \
-        a1 = StackPop(&cpu->stk);                \
-        a2 = StackPop(&cpu->stk);                \
-        StackPush(&cpu->stk, a2 oper a1);        \
+        a1 = StackPop(&(cpu->stk));                \
+        a2 = StackPop(&(cpu->stk));                \
+        StackPush(&(cpu->stk), a2 oper a1);        \
     break;
 
 void Run(CPU* cpu)
 {
     Elem a1 = 0;
     Elem a2 = 0;
+    int* regs = (int*)calloc(REG_N, sizeof(int));
 
     while (cpu->pc < cpu->number_comands)
     {
-        int cmd = cpu->code[cpu->pc++] & CMD_MASK;
+        int cmd = cpu->code[cpu->pc++];
+        int arg = 0;
+        //printf("cmd = %d\n", cmd);
 
-        switch(cmd)
+        switch(cmd & CMD_MASK)
         {
             case CMD_PUSH:
+                if ((cmd & ARG_IMMED) != 0)
+                {
+                    arg += cpu->code[cpu->pc++];
+                    //printf("Arg = %d\n", arg);
+                }
+
+                if ((cmd & ARG_REG) != 0)
+                {
+                    arg += regs[cpu->code[cpu->pc++]];
+                    printf("Arg = %d\n", arg);
+                }
+
                 if (cpu->pc < cpu->number_comands - 1)
                 {
-                    StackPush(&cpu->stk, cpu->code[cpu->pc++]);
+                    StackPush(&cpu->stk, arg);
                 }
                 else
                 {

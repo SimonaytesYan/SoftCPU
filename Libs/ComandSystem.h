@@ -3,7 +3,8 @@
 
 #include "Logging.h"
 
-enum COMANDS{
+enum COMANDS
+{
     CMD_HLT  = 0,
     CMD_PUSH = 1,
     CMD_ADD  = 2,
@@ -14,8 +15,26 @@ enum COMANDS{
     CMD_POP  = 7,
 };
 
+const int REG_N = 4;
+
+enum REGISTERS
+{
+    RAX = 1,
+    RBX = 2,
+    RCX = 3,
+    RDX = 4, 
+};
+
+enum CMD_MASKS
+{
+    CMD_MASK  = 0xFF,
+    ARG_IMMED = 0x100,
+    ARG_REG   = 0x200,
+    ARG_MEM   = 0x400
+};
+
 const int SIGNATURE   = 'S' * 256 + 'Y';
-const int ASM_VERSION = 0;
+const int ASM_VERSION = 1;
 
 struct Header
 {

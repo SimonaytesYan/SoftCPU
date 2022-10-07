@@ -46,8 +46,48 @@ int GetProgramText(int* number_lines, const char*** text, char** original_text)
     return 0;
 }
 
-int ParseArgs(const char* args, int** comands, int comand_index)
+int ParseArgs(const char* args, int** comands, int* comand_index)
 {
+    char arg[MAX_COMAND_LENGHT] = {};
+    sscanf(args, "%s", arg);
+
+    int comand = CMD_PUSH;
+    int val    = 0;
+
+    if (0 <= arg[0] - '0' && arg[0] - '0' <= 9)
+    {
+        comand |= ARG_IMMED;
+        val     = atoi(arg);
+    }
+    else if (stricmp(arg, "rax") == 0)
+    {
+        comand |= ARG_REG;
+        val     = RAX;
+    }
+    else if (stricmp(arg, "rbx") == 0)
+    {
+        comand |= ARG_REG;
+        val     = RBX;
+    }
+    else if (stricmp(arg, "rcx") == 0)
+    {
+        comand |= ARG_REG;
+        val     = RCX;
+    }
+    else if (stricmp(arg, "rdx") == 0)
+    {
+        comand |= ARG_REG;
+        val     = RDX;
+    }
+    else
+    {
+        CHECK(1, "Wrong register name\n", -1);
+    }
+    
+    (*comands)[(*comand_index)++] = comand;
+    (*comands)[(*comand_index)++] = val;
+
+    return 0;
 }
 
 //!--------------
@@ -61,7 +101,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
     CHECK(number_comand == nullptr, "number_comand = nullptr\n", -1);
     CHECK(comands       == nullptr, "comands = nullptr\n",       -1);
 
-    *comands      = (int*)calloc(number_lines * 2 + 1, sizeof(int));
+    *comands      = (int*)calloc(number_lines * 3 + 1, sizeof(int));
 
     CHECK(*comands == nullptr, "Error during allocation memory for comands array\n", -1);
 
@@ -76,11 +116,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         if (stricmp(cmd, "push") == 0)
         {
             const char* args = text[line] + number_few_char; 
-            
-            int val = 0;
-            sscanf(text[line] + number_few_char, "%d", &val);
-            (*comands)[comand_index++] = val; 
-            (*comands)[comand_index++] = CMD_PUSH;
+            CHECK(ParseArgs(args, comands, &comand_index) != 0, "Wrong push arg", -1);
         }
         else if(stricmp(cmd, "pop") == 0)
         {
@@ -114,8 +150,8 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         }
         else
         {
-            fprintf(stderr, "Wrong comand in line %d\n", line);
-            LogPrintf("Wrong comand in line %d\n", line);
+            fprintf(stderr, "Wrong comand in line %d\n", line + 1);
+            LogPrintf("Wrong comand in line %d\n", line + 1);
             return -1;
         }
     }
@@ -125,7 +161,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
     return 0;
 }
 
-int PutProgramToFile(Header* header, int* comands, int number_comands)
+int PutProgramToFile(Header* header, int* comands)
 {
     CHECK(header == nullptr, "Header == nullptr\n", -1);
 
@@ -134,7 +170,7 @@ int PutProgramToFile(Header* header, int* comands, int number_comands)
     CHECK(executable_file == nullptr, "Error during open file for write binary program to\n", -1);
 
     fwrite(header, sizeof(*header), 1, executable_file);
-    fwrite(comands, sizeof(int), number_comands, executable_file);
+    fwrite(comands, sizeof(int), header->comands_number, executable_file);
 
     fclose(executable_file);
 }
@@ -157,7 +193,7 @@ int main()
     Header header = {};
     InitHeader(&header, number_comands);
     
-    PutProgramToFile(&header, comands, number_comands);
+    PutProgramToFile(&header, comands);
 
     free(comands);
     CloseLogFile();
