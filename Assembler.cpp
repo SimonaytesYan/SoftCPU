@@ -18,7 +18,6 @@ const char EXECUTABLE[]  = "a.sy";
 
 const int MAX_COMAND_LENGHT = 100;
 
-
 int main()
 {
 
@@ -123,6 +122,6 @@ int main()
 
     fclose(executable_file);
     free(comands);
-    
+
     CloseLogFile();
 }

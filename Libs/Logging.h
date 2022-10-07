@@ -5,6 +5,14 @@
 
 #include "..\Errors\Errors.h"
 
+#define CHECK(cond, msg, return_code)   \
+    if (cond)                           \
+    {                                   \
+        LogPrintf(msg);                 \
+        return return_code;             \
+    }                               
+
+
 FILE* logs_file;
 
 int OpenLogFile(const char* file_name)

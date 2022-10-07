@@ -1,4 +1,3 @@
-
 typedef int Elem;
 #define LOGS_TO_FILE
 
@@ -6,7 +5,6 @@ typedef int Elem;
 #include "Libs\Logging.h"
 #include "Libs\Stack.h"
 #include "Libs\ComandSystem.h"
-
 
 struct CPU
 {
@@ -159,22 +157,22 @@ void Run(CPU* cpu)
 
 int main(int argc, char* argv[])
 {
-    OpenLogFile("CPULogs");
+    OpenLogFile("CPULogs.txt");
 
     FILE* executable_file = nullptr;
     if (GetExecFileFromCMDArgs(&executable_file, argc, argv) != 0)
-        return -1234;
+        return -1;
 
     Header header = {};
     if (OpenFileAndCheckHeader(&header, &executable_file) != 0)
-        return -1234;
+        return -1;
 
     CPU cpu = {};
     if (GetCPUFromFile(&cpu, header.comands_number, executable_file) != 0)
-        return -1234;
+        return -1;
 
     Run(&cpu);
-    
+
     CloseLogFile();
 
     system("Pause");
