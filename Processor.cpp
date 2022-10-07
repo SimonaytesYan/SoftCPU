@@ -22,11 +22,9 @@ int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
     StackCtor(&(cpu->stk), 0);
 
     cpu->code = (int*)calloc(comands_number, sizeof(int));
-    if (cpu->code == nullptr)
-    {
-        LogPrintf("\nError during allocation memory for comands array\n");
-        return 1;
-    }
+
+    CHECK(cpu->code == nullptr, "\nError during allocation memory for comands array\n", -1);
+
     fread(cpu->code, sizeof(int) ,comands_number, executable_file);
     
     cpu->number_comands = comands_number;
@@ -37,70 +35,27 @@ int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 
 int OpenFileAndCheckHeader(Header *header, FILE** executable_file)
 {
-    if (executable_file == nullptr)
-    {
-        LogPrintf("\nDamaged executable file\n");
-        return 1;
-    }
-
-    if (executable_file == nullptr)
-    {
-        LogPrintf("\nExecutable file = nullptr\n");
-        return 1;
-    }
+    CHECK(executable_file  == nullptr, "\nDamaged executable file\n",   -1);
+    CHECK(*executable_file == nullptr, "\nExecutable file = nullptr\n", -1); 
 
     fread(header, sizeof(*header), 1, *executable_file);
 
-    if (header->signature != SIGNATURE)
-    {
-        LogPrintf("\nFile isn`t executable\n");
-        return 1;
-    }
-
-    if (header->version != ASM_VERSION)
-    {
-        LogPrintf("\nWrong version of compiler\n");
-        return 1;
-    }
-
+    CHECK(header->signature != SIGNATURE,   "\nFile isn`t executable\n",     -1); 
+    CHECK(header->version   != ASM_VERSION, "\nWrong version of compiler\n", -1);
     return 0;
 }
 
 int GetExecFileFromCMDArgs(FILE** fp, int argc, char* argv[])
 {
-    if (fp == nullptr)
-    {
-        LogPrintf("\nFp damaged\n");
-        return -1;
-    }
-
-    if (argv == nullptr)
-    {
-        LogPrintf("\nArgv damaged\n");
-        return -1;
-    }
-
-    if (*argv == nullptr)
-    {
-        LogPrintf("\nargv = nullptr\n");
-        return -1;
-    }
-    
-    if (argc != 2)
-    {
-        LogPrintf("\nWrong number of cmd arguments\n");
-        return -1;
-    }
+    CHECK(fp   == nullptr, "\nFp damaged\n",                    -1);
+    CHECK(argv == nullptr, "\nArgv damaged\n",                  -1);
+    CHECK(argc != 2,       "\nWrong number of cmd arguments\n", -1);
 
     char* executable_file_name = argv[1];
 
     *fp = fopen(executable_file_name, "rb");
-    if (*fp == nullptr)
-    {
-        LogPrintf("\nError during executable file open");
-        return -1;
-    }
-
+    CHECK(*fp == nullptr, "\nError during executable file open", -1); 
+    
     return 0;
 }
 

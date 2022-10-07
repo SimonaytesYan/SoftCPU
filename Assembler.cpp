@@ -20,38 +20,20 @@ const int MAX_COMAND_LENGHT = 100;
 
 int main()
 {
-
-    if (OpenLogFile("AssLogs.txt") != 0)
-    {
-        fprintf(stderr, "Error while logs open\n");
-        return -1;
-    }
+    CHECK(OpenLogFile("AssLogs.txt") != 0, "Error while logs open\n", -1);
 
     FILE* program_file = fopen(PROGRAM, "r");
-    if (program_file == nullptr)
-    {
-        LogPrintf("Error while program file open\n");
-        return -1;
-    }
-    LogPrintf("Normal open files\n");
+    CHECK(program_file == nullptr, "Error while logs open\n", -1);
 
     int   file_size = get_text_size(PROGRAM);
     char* all_text  = (char*) calloc(file_size, sizeof(char));
 
-    if (all_text == nullptr)
-    {
-        LogPrintf("Error calloc memory to all text\n");
-        return -1;
-    }
+    CHECK(all_text == nullptr, "Error calloc memory to all text\n", -1); 
 
     int lines_number  = gettext(all_text, file_size, program_file);
-    LogPrintf("Took program\n");
     const char **text = (const char**)calloc(lines_number, sizeof(char*)); 
 
     getlines_from_text(text, all_text);
-    LogPrintf("Splited by lines\n");
-
-    LogPrintf("Line number = %d\n\n", lines_number);
 
     int* comands      = (int*)calloc(lines_number * 2 + 1, sizeof(int));
     int  comand_index = 0;
