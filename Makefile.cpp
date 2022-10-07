@@ -2,10 +2,12 @@
 
 int main()
 {
+    
     system("g++ -c Libs/FileWork/FileWork.cpp");
 
-    system("g++ Assembler.cpp FileWork.o -o Comp.exe");
-    system("Comp.exe");
-    system("g++ Processor.cpp -o Start.exe");
-    system("Start.exe a.sy");
+    system("md Exe");
+    system("g++ Assembler.cpp FileWork.o -o Exe/Comp.exe");
+    system("start Exe/Comp.exe");
+    system("g++ Processor.cpp -o Exe/Start.exe");
+    system("start Exe/Start.exe a.sy");
 }

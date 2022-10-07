@@ -429,7 +429,10 @@ size_t ChangeStackData(Stack* stk, int newCapacity)
         stk->data = (Elem*)(mem_block + sizeof(LEFT_KENAR));
     }
     #else
-        stk->data = (Elem*)realloc(stk->data, new_capacity);
+        if (stk->data == nullptr)
+            stk->data = (Elem*)calloc(new_capacity, 1);
+        else
+            stk->data = (Elem*)realloc(stk->data, new_capacity);
     #endif
 
     Rehash(stk);
