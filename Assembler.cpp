@@ -21,18 +21,18 @@ const int MAX_COMAND_LENGHT = 100;
 
 int main()
 {
-    FILE* logs         = fopen(LOGS,    "w");
-    FILE* program_file = fopen(PROGRAM, "r");
 
-    if (logs == nullptr)
+    if (OpenLogFile("AssLogs.txt") != 0)
     {
         fprintf(stderr, "Error while logs open\n");
-        return 0;
+        return -1;
     }
+
+    FILE* program_file = fopen(PROGRAM, "r");
     if (program_file == nullptr)
     {
         LogPrintf("Error while program file open\n");
-        return 0;
+        return -1;
     }
     LogPrintf("Normal open files\n");
 
@@ -42,7 +42,7 @@ int main()
     if (all_text == nullptr)
     {
         LogPrintf("Error calloc memory to all text\n");
-        return 0;
+        return -1;
     }
 
     int lines_number  = gettext(all_text, file_size, program_file);
@@ -110,9 +110,6 @@ int main()
             LogPrintf("Wrong comand in line %d", line);
             break;
         }
-
-        fclose(logs);
-        logs = fopen(LOGS, "a");
     }
     
     Header header        = {};
@@ -126,5 +123,6 @@ int main()
 
     fclose(executable_file);
     free(comands);
-    fclose(logs);
+    
+    CloseLogFile();
 }

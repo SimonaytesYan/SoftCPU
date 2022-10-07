@@ -4,16 +4,28 @@
 #include <stdarg.h>
 
 #include "..\Errors\Errors.h"
-const char LOGS[] = "Logs.txt";
 
-FILE* logs_file = fopen(LOGS, "w");
+FILE* logs_file;
 
-int OpenLogFile()
+int OpenLogFile(const char* file_name)
 {
+    logs_file = fopen(file_name, "w");
+    if (logs_file == nullptr)
+    {
+        fprintf(stderr, "Error during open logs\n");
+        return -1;
+    }
+    return 0;
 }
 
 int CloseLogFile()
 {
+    if (logs_file == nullptr)
+    {
+        return -1;
+    }
+    fclose(logs_file);
+    return 0;
 }
 
 size_t LogPrintf(const char *format, ...)

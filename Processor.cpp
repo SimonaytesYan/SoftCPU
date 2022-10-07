@@ -159,6 +159,8 @@ void Run(CPU* cpu)
 
 int main(int argc, char* argv[])
 {
+    OpenLogFile("CPULogs");
+
     FILE* executable_file = nullptr;
     if (GetExecFileFromCMDArgs(&executable_file, argc, argv) != 0)
         return -1234;
@@ -172,5 +174,8 @@ int main(int argc, char* argv[])
         return -1234;
 
     Run(&cpu);
+    
+    CloseLogFile();
+
     system("Pause");
 }

@@ -1,16 +1,20 @@
 
-all: file_work
-	g++ Assembler.cpp FileWork.o -o Comp.exe
-	.\Comp.exe
-	g++ Processor.cpp -o Start.exe
-	.\Start.exe a.sy
+all: assembler  file_work
+	.\Exe\Comp.exe
+	.\Exe\Start.exe a.sy
+
+assembler:
+	g++ Assembler.cpp FileWork.o -o Exe\Comp.exe
+
+processor:
+	g++ Processor.cpp -o Exe\Start.exe
 
 interpret: file_work
-	g++ Interpreter.cpp.cpp FileWork.o -o Start.exe
+	g++ Interpreter.cpp.cpp FileWork.o -o Exe\Start.exe
 	.\Start.exe
 
 disassembler:
-	g++ Disassembler.cpp -o Disass.exe
+	g++ Disassembler.cpp -o Exe\Disass.exe
 	.\Disass.exe a.sy
 
 file_work:
