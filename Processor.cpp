@@ -89,6 +89,10 @@ void Run(CPU* cpu)
                 }
             break;
 
+            case CMD_POP:
+
+            break;
+
             CaseCMD(CMD_ADD, +);
             CaseCMD(CMD_SUB, -);
             CaseCMD(CMD_MUL, *);

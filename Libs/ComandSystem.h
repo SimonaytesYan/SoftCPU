@@ -11,7 +11,7 @@ enum COMANDS{
     CMD_MUL  = 4,
     CMD_DIV  = 5,
     CMD_OUT  = 6,
-    CMD_IN   = 7,
+    CMD_POP  = 7,
 };
 
 const int SIGNATURE   = 'S' * 256 + 'Y';

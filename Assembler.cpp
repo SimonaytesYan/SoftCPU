@@ -46,6 +46,10 @@ int GetProgramText(int* number_lines, const char*** text, char** original_text)
     return 0;
 }
 
+int ParseArgs(const char* args, int** comands, int comand_index)
+{
+}
+
 //!--------------
 //!
 //!@param [out] comands       Array for program in binary representation 
@@ -69,14 +73,19 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
 
-        printf("[%d] = <%s>\n", line, cmd);
-
         if (stricmp(cmd, "push") == 0)
         {
+            const char* args = text[line] + number_few_char; 
+            
             int val = 0;
             sscanf(text[line] + number_few_char, "%d", &val);
-            (*comands)[comand_index++] = CMD_PUSH;
             (*comands)[comand_index++] = val; 
+            (*comands)[comand_index++] = CMD_PUSH;
+        }
+        else if(stricmp(cmd, "pop") == 0)
+        {
+            //....
+            //....
         }
         else if (stricmp(cmd, "add") == 0)
         {
