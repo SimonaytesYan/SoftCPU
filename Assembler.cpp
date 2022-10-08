@@ -101,7 +101,7 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
         }
         else 
         {
-            CHECK((*comand & ARG_REG) == 0, "Wrong  args\n", -1);
+            CHECK((*comand & ARG_REG) != 0, "Wrong  args\n", -1);
 
             if (stricmp(arg_2, "rax") == 0)
             {
