@@ -11,7 +11,7 @@
 //!---------------
 int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text);
 
-int ParseArgs(const char* args, int** comands, int* comand_index);
+int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2);
 
 //!--------------
 //!

@@ -37,48 +37,56 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
     return 0;
 }
 
-int ParseArgs(const char* args, int** comands, int* comand_index)
+int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2)
 {
+    CHECK(arg1    == nullptr, "arg1 = nullptr",    -1);
+    CHECK(arg2    == nullptr, "arg2 = nullptr",    -1);
+    CHECK(args    == nullptr, "args = nullptr",    -1);
+    CHECK(comands == nullptr, "comands = nullptr", -1);
+    CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
+
     char arg[MAX_COMAND_LENGHT] = {};
     sscanf(args, "%s", arg);
 
-    int comand = CMD_PUSH;
+    *comand = 0;
     int val    = 0;
 
     if (0 <= arg[0] - '0' && arg[0] - '0' <= 9)
     {
-        comand |= ARG_IMMED;
-        val     = atoi(arg);
+        *comand |= ARG_IMMED;
+        *arg1    = atoi(arg);
     }
     else if (stricmp(arg, "rax") == 0)
     {
-        comand |= ARG_REG;
-        val     = RAX;
+        *comand |= ARG_REG;
+        *arg1    = RAX;
     }
     else if (stricmp(arg, "rbx") == 0)
     {
-        comand |= ARG_REG;
-        val     = RBX;
+        *comand |= ARG_REG;
+        *arg1    = RBX;
     }
     else if (stricmp(arg, "rcx") == 0)
     {
-        comand |= ARG_REG;
-        val     = RCX;
+        *comand |= ARG_REG;
+        *arg1    = RCX;
     }
     else if (stricmp(arg, "rdx") == 0)
     {
-        comand |= ARG_REG;
-        val     = RDX;
+        *comand |= ARG_REG;
+        *arg1    = RDX;
     }
     else
     {
         CHECK(1, "Wrong register name\n", -1);
     }
-    
-    (*comands)[(*comand_index)++] = comand;
-    (*comands)[(*comand_index)++] = val;
 
     return 0;
+}
+
+int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2)
+{
+    return ParseArgs(args, comands, comand_index, comand, arg1, arg2);
 }
 
 int Compilation(int** comands, int* number_comand, int number_lines, const char** text)
@@ -101,12 +109,28 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         if (stricmp(cmd, "push") == 0)
         {
             const char* args = text[line] + number_few_char; 
-            CHECK(ParseArgs(args, comands, &comand_index) != 0, "Wrong push arg", -1);
+            int arg1   = -1;
+            int arg2   = -1;
+            int comand = 0;
+            CHECK(ParseArgs(args, *comands, comand_index, &comand, &arg1, &arg2) != 0, "Wrong push arg", -1);
+            (*comands)[comand_index++] = comand | CMD_PUSH;
+            if (arg1 != -1)
+                (*comands)[comand_index++] = arg1;
+            if (arg2 != -1)
+                (*comands)[comand_index++] = arg2;
         }
         else if(stricmp(cmd, "pop") == 0)
-        {
-            //....
-            //....
+        { 
+            int arg1   = -1;
+            int arg2   = -1;
+            int comand = 0;
+            const char* args = text[line] + number_few_char; 
+            CHECK(GetArgsForPop(args, *comands, comand_index, &comand, &arg1, &arg2) != 0, "Wrong pop arg", -1);  
+            (*comands)[comand_index++] = comand | CMD_POP;
+            if (arg1 != -1)
+                (*comands)[comand_index++] = arg1;
+            if (arg2 != -1)
+                (*comands)[comand_index++] = arg2;        
         }
         else if (stricmp(cmd, "add") == 0)
         {

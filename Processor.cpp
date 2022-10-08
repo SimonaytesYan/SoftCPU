@@ -71,7 +71,6 @@ void Run(CPU* cpu)
                 if ((cmd & ARG_REG) != 0)
                 {
                     arg += regs[cpu->code[cpu->pc++]];
-                    printf("Arg = %d\n", arg);
                 }
 
                 if (cpu->pc < cpu->number_comands - 1)
@@ -86,7 +85,16 @@ void Run(CPU* cpu)
             break;
 
             case CMD_POP:
-
+                if ((cmd & ARG_REG) != 0)
+                {
+                    int reg   = cpu->code[cpu->pc++];
+                    if (reg <= 0 || reg > REG_N)
+                    {
+                        LogPrintf("\nWrong register number in pop\n");
+                    }   
+                    a1        = StackPop(&(cpu->stk));
+                    regs[reg] = a1;
+                }
             break;
 
             CaseCMD(CMD_ADD, +);
