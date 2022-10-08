@@ -9,7 +9,7 @@ typedef int Elem;
 #include "Assembler.h"
 #include "Libs/Logging/Logging.h"
 #include "Libs/FileWork/FileWork.h"
-#include "Libs/ComandSystem.h"
+#include "Libs/ComandSystem/ComandSystem.h"
 
 const char EXECUTABLE[]  = "a.sy";
 

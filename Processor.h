@@ -8,7 +8,7 @@ typedef int Elem;
 #include "Libs\PrintElem.h"
 #include "Libs\Logging\Logging.h"
 #include "Libs\Stack.h"
-#include "Libs\ComandSystem.h"
+#include "Libs\ComandSystem\ComandSystem.h"
 
 struct CPU
 {

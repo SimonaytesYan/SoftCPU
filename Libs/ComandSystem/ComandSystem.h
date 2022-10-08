@@ -1,8 +1,6 @@
 #ifndef __COMAND_SYSTEM_SYM__
 #define __COMAND_SYSTEM_SYM__
 
-#include "Logging\Logging.h"
-
 enum COMANDS
 {
     CMD_HLT  = 0,
@@ -43,15 +41,6 @@ struct Header
     int comands_number = -1; 
 };
 
-int InitHeader(Header* header, int comands_number)
-{
-    CHECK(header == nullptr, "Null header", -1);
-
-    header->signature        = SIGNATURE;
-    header->version          = ASM_VERSION;
-    header->comands_number   = comands_number;
-
-    return 0;
-}
+int InitHeader(Header* header, int comands_number);
 
 #endif //__COMAND_SYSTEM_SYM__
