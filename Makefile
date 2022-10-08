@@ -1,30 +1,34 @@
 
-all: logging assembler_exe processor_exe file_work
+all: create_folders logging assembler_exe processor_exe file_work
 	.\Exe\Comp.exe
 	.\Exe\Start.exe a.sy
 
-assembler_exe: logging file_work comand_system
-	g++ Assembler.cpp ComandSystem.o Logging.o FileWork.o -o Exe\Comp.exe
+create_folders:
+	mkdir -p Exe
+	mkdir -p Obj
 
-processor_exe: logging comand_system
-	g++ Processor.cpp Logging.o ComandSystem.o -o Exe\Start.exe
+assembler_exe: create_folders logging file_work comand_system
+	g++ Assembler.cpp Obj\ComandSystem.o Obj\Logging.o Obj\FileWork.o -o Exe\Comp.exe
 
-interpret_exe: file_work
-	g++ Interpreter.cpp.cpp FileWork.o -o Exe\Start.exe
+processor_exe: create_folders logging comand_system
+	g++ Processor.cpp Obj\Logging.o Obj\ComandSystem.o -o Exe\Start.exe
+
+interpret_exe: create_folders file_work
+	g++ Interpreter.cpp.cpp Obj\FileWork.o -o Exe\Start.exe
 	.\Start.exe
 
-processor_o:
-	g++ -c  Processor.cpp
+processor_o: create_folders
+	g++ -c  Processor.cpp -o Obj\Processor.o
 
-disassembler_exe: comand_system logging
-	g++ Disassembler.cpp ComandSystem.o Logging.o Processor.o -o Exe\Disass.exe
+disassembler_exe: create_folders comand_system logging
+	g++ Disassembler.cpp Obj\ComandSystem.o Obj\Logging.o Obj\Processor.o -o Exe\Disass.exe
 	.\Disass.exe a.sy
 
-file_work:
-	g++ -c Libs\FileWork\FileWork.cpp
+file_work: create_folders
+	g++ -c Libs\FileWork\FileWork.cpp -o Obj\FileWork.o
 
-logging:
-	g++ -c Libs\Logging\Logging.cpp 
+logging: create_folders
+	g++ -c Libs\Logging\Logging.cpp -o Obj\Logging.o
 
-comand_system:
-	g++ -c Libs\ComandSystem\ComandSystem.cpp
+comand_system: create_folders
+	g++ -c Libs\ComandSystem\ComandSystem.cpp -o Obj\ComandSystem.o
