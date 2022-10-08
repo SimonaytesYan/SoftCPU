@@ -112,6 +112,8 @@ void Run(CPU* cpu)
 
 int ExecProgramFromCL(int argc, char* argv[])
 {
+    CHECK(argv == nullptr, "Argv = nullptr", -1);
+
     OpenLogFile("CPULogs.txt");
 
     FILE* executable_file = nullptr;

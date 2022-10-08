@@ -19,9 +19,10 @@ const int  HOW_MANY_ELEM_OUT = 10; //!This constant is used to determine how man
 #define HASH_PROTECTION   2
 #define PROTECTION_LEVEL  0
 
+#define POISON_PTR ((void*)13)
+//const void*    POISON_PTR  = (void*)13;
 const double   FOR_RESIZE  = 2; 
 const Elem     POISON      = 0X7FFFFFFF;
-const void*    POISON_PTR  = (void*)13;
 const uint64_t LEFT_KENAR  = 0xABABABABADEADDED;
 const uint64_t RIGHT_KENAR = (uint64_t)(-1)^LEFT_KENAR;
 

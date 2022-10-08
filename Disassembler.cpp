@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define LOGS_TO_FILE
-
 #include "Processor.h"
 
 const char original_program[] = "DisAssebledProgram.txt";
@@ -20,6 +15,7 @@ int RecoverProgram(CPU* cpu)
         {
             case CMD_PUSH:
                 fprintf(original_text_fp, "push");
+                fflush(original_text_fp);
                 if ((cmd & ARG_IMMED) != 0)
                 {
                     fprintf(original_text_fp, " %d", cpu->code[cpu->pc++]);
@@ -48,8 +44,7 @@ int RecoverProgram(CPU* cpu)
                     default:
                         break;
                     }
-
-                    fprintf(original_text_fp, " %s", cpu->code[cpu->pc++], reg);
+                    fprintf(original_text_fp, " %s", reg);
                 }
                 
                 fprintf(original_text_fp, "\n");
@@ -87,6 +82,7 @@ int RecoverProgram(CPU* cpu)
                 LogPrintf("\nWrong comand\n");
             break;
         }
+        fflush(original_text_fp);
     }
 
     fclose(original_text_fp);
@@ -94,11 +90,12 @@ int RecoverProgram(CPU* cpu)
 
 int main(int argc, char* argv[])
 {
+    OpenLogFile("Disassembler.txt");
     FILE *fp = nullptr;
     GetExecFileFromCLArgs(&fp, argc, argv);
 
     Header header = {};
-    CheckHeaderFromFile(&header, &fp);
+    CheckHeaderFromFile(&header, fp);
 
     CPU cpu           = {};
 
@@ -106,4 +103,6 @@ int main(int argc, char* argv[])
     
     if (RecoverProgram(&cpu) != 0)
         return -1;
+
+    CloseLogFile();
 }

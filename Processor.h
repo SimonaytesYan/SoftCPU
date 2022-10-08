@@ -13,14 +13,14 @@ typedef int Elem;
 struct CPU
 {
     int*  code           = nullptr;
-    int   number_comands = 0; 
+    int   number_comands = 0;
     int   pc             = 0;
     Stack stk            = {};
 };
 
 int  GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[]);
 
-int  CheckHeaderFromFile(Header *header, FILE** executable_file);
+int  CheckHeaderFromFile(Header *header, FILE* executable_file);
 
 int  GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file);
 
