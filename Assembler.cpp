@@ -45,33 +45,38 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
     CHECK(comands == nullptr, "comands = nullptr", -1);
     CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
 
-    char arg[MAX_COMAND_LENGHT] = {};
-    sscanf(args, "%s", arg);
+    //char* SquareBracket = strtok((char*)args, " \t");
+    //if (first)
+    
+    char separators[] = " \t+";
+    char* arg_1 = strtok((char*)args, separators);
+    char* arg_2 = strtok(nullptr, separators);
 
     *comand = 0;
-    int val    = 0;
 
-    if (0 <= arg[0] - '0' && arg[0] - '0' <= 9)
+    CHECK((arg_1 == nullptr), "Wrong push args\n", -1);
+        
+    if (0 <= arg_1[0] - '0' && arg_1[0] - '0' <= 9)
     {
         *comand |= ARG_IMMED;
-        *arg1    = atoi(arg);
+        *arg1    = atoi(arg_1);
     }
-    else if (stricmp(arg, "rax") == 0)
+    else if (stricmp(arg_1, "rax") == 0)
     {
         *comand |= ARG_REG;
         *arg1    = RAX;
     }
-    else if (stricmp(arg, "rbx") == 0)
+    else if (stricmp(arg_1, "rbx") == 0)
     {
         *comand |= ARG_REG;
         *arg1    = RBX;
     }
-    else if (stricmp(arg, "rcx") == 0)
+    else if (stricmp(arg_1, "rcx") == 0)
     {
         *comand |= ARG_REG;
         *arg1    = RCX;
     }
-    else if (stricmp(arg, "rdx") == 0)
+    else if (stricmp(arg_1, "rdx") == 0)
     {
         *comand |= ARG_REG;
         *arg1    = RDX;
@@ -81,12 +86,59 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
         CHECK(1, "Wrong register name\n", -1);
     }
 
+    if (arg_2 != nullptr)
+    {
+        if (0 <= arg_2[0] - '0' && arg_2[0] - '0' <= 9)
+        {
+            CHECK((*comand & ARG_IMMED) != 0, "Wrong args\n", -1);
+
+            *comand |= ARG_IMMED;
+            *arg2    = atoi(arg_2);
+
+            int temp = *arg1;
+            *arg1 = *arg2;
+            *arg2 = temp;
+        }
+        else 
+        {
+            CHECK((*comand & ARG_REG) == 0, "Wrong  args\n", -1);
+
+            if (stricmp(arg_2, "rax") == 0)
+            {
+                *comand |= ARG_REG;
+                *arg2    = RAX;
+            }
+            else if (stricmp(arg_2, "rbx") == 0)
+            {
+                *comand |= ARG_REG;
+                *arg2    = RBX;
+            }
+            else if (stricmp(arg_2, "rcx") == 0)
+            {
+                *comand |= ARG_REG;
+                *arg2    = RCX;
+            }
+            else if (stricmp(arg_2, "rdx") == 0)
+            {
+                *comand |= ARG_REG;
+                *arg2    = RDX;
+            }
+            else
+            {
+                CHECK(1, "Wrong register name\n", -1);
+            }
+        }
+    }
+
     return 0;
 }
 
 int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2)
 {
-    return ParseArgs(args, comands, comand_index, comand, arg1, arg2);
+    CHECK(ParseArgs(args, comands, comand_index, comand, arg1, arg2), "", -1);
+    
+    CHECK(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1);        
+
 }
 
 int Compilation(int** comands, int* number_comand, int number_lines, const char** text)
@@ -113,6 +165,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
             int arg2   = -1;
             int comand = 0;
             CHECK(ParseArgs(args, *comands, comand_index, &comand, &arg1, &arg2) != 0, "Wrong push arg", -1);
+
             (*comands)[comand_index++] = comand | CMD_PUSH;
             if (arg1 != -1)
                 (*comands)[comand_index++] = arg1;
