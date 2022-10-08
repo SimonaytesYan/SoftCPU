@@ -13,7 +13,6 @@ typedef int Elem;
 #include "Libs/ComandSystem.h"
 #include "Libs/PrintElem.h"
 
-const char PROGRAM[]     = "Program.txt";
 const char EXECUTABLE[]  = "a.sy";
 
 const int MAX_COMAND_LENGHT = 100;
@@ -24,16 +23,16 @@ const int MAX_COMAND_LENGHT = 100;
 //!@param [out] numer_lines number lines in program
 //!
 //!---------------
-int GetProgramText(int* number_lines, const char*** text, char** original_text)
+int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text)
 {
     CHECK(number_lines  == nullptr, "&number_lines = nullptr\n", -1);
     CHECK(text          == nullptr, "&text = nullptr\n",         -1);
     CHECK(original_text == nullptr, "original_text = nullptr\n", -1);
 
-    FILE* program_file = fopen(PROGRAM, "r");
+    FILE* program_file = fopen(program, "r");
     CHECK(program_file == nullptr, "Error while logs open\n", -1);
 
-    int   file_size = get_text_size(PROGRAM);
+    int   file_size = get_text_size(program);
     *original_text  = (char*) calloc(file_size + 1, sizeof(char));
     CHECK(*original_text == nullptr, "Error calloc memory to all text\n", -1); 
 
@@ -175,9 +174,7 @@ int PutProgramToFile(Header* header, int* comands)
     fclose(executable_file);
 }
 
-
-
-int main()
+int GetProgramAndCompile(const char* program_file)
 {
     CHECK(OpenLogFile("AssLogs.txt") != 0, "Error while logs open\n", -1);
 
@@ -185,7 +182,7 @@ int main()
     const char **text           = nullptr;
     char*        original_text  = nullptr; 
     
-    CHECK(GetProgramText(&number_lines, &text, &original_text) != 0, "Error during read text program\n", -1);
+    CHECK(GetProgramText(program_file, &number_lines, &text, &original_text) != 0, "Error during read text program\n", -1);
 
     int* comands        = nullptr;
     int  number_comands = 0;
@@ -199,4 +196,9 @@ int main()
 
     free(comands);
     CloseLogFile();
+}
+
+int main()
+{
+    GetProgramAndCompile("Program.txt");
 }
