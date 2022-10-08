@@ -3,103 +3,107 @@
 
 #define LOGS_TO_FILE
 
-#include "Libs\ComandSystem.h"
-#include "Libs\Logging.h"
+#include "Processor.h"
 
 const char original_program[] = "DisAssebledProgram.txt";
-int main(int argc, char* argv[])
+
+int RecoverProgram(CPU* cpu)
 {
-    if (argc != 2)
-    {
-        LogPrintf("Wrong number of cmd arguments\n");
-        return 0;
-    }    
-
-    char* executable_file_name = argv[1];
-
-    FILE* executable_file = fopen(executable_file_name, "rb");
-
-    if (executable_file == nullptr)
-    {
-        LogPrintf("Error during executable file open");
-        return 0;
-    }
-    Header header = {};
-    
-    fread(&header, sizeof(header), 1, executable_file);
-
-    if (header.signature != SIGNATURE)
-    {
-        LogPrintf("File isn`t executable");
-        return 0;
-    }
-
-    if (header.version != ASM_VERSION)
-    {
-        LogPrintf("Wrong version of compiler");
-        return 0;
-    }
-
-    int* comands = (int*)calloc(header.comands_number, sizeof(int));
-    int  pc = 0;
-
-    fread(comands, sizeof(int) ,header.comands_number, executable_file);
-
-    printf("Start comand\n");
-
     FILE* original_text_fp = fopen(original_program, "w");
 
-    while (pc < header.comands_number)
+    while (cpu->pc < cpu->number_comands)
     {
-        switch(comands[pc])
+        int cmd = cpu->code[cpu->pc++];
+        int arg = 0;
+
+        switch(cmd & CMD_MASK)
         {
             case CMD_PUSH:
-                if (pc < header.comands_number - 1)
+                fprintf(original_text_fp, "push");
+                if ((cmd & ARG_IMMED) != 0)
                 {
-                    fprintf(original_text_fp, "push %d\n", comands[pc + 1]);
-                    pc += 2;
+                    fprintf(original_text_fp, " %d", cpu->code[cpu->pc++]);
                 }
-                else
+                
+                if ((cmd & ARG_REG) != 0)
                 {
-                    LogPrintf("Not enought comands");
-                    return 0;
+                    const char* reg = "";
+                    switch (cpu->code[cpu->pc++])
+                    {
+                    case RAX:
+                        reg = "rax";
+                    break;
+                    
+                    case RBX:
+                        reg = "rbx";
+                    break;
+                    
+                    case RCX:
+                        reg = "rcx";
+                    break;
+                    
+                    case RDX:
+                        reg = "rdx";
+                    break;
+                    default:
+                        break;
+                    }
+
+                    fprintf(original_text_fp, " %s", cpu->code[cpu->pc++], reg);
                 }
+                
+                fprintf(original_text_fp, "\n");
+            break;
+
+            case CMD_POP:
+
             break;
 
             case CMD_ADD:
                 fprintf(original_text_fp, "add\n");
-                pc++;
-            break;
-
-            case CMD_DIV:
-                fprintf(original_text_fp, "div\n");
-                pc++;
-            break;
-
-            case CMD_MUL:
-                fprintf(original_text_fp, "mul\n");
-                pc++;
             break;
 
             case CMD_SUB:
                 fprintf(original_text_fp, "sub\n");
-                pc++;
             break;
-
+            
+            case CMD_MUL:
+                fprintf(original_text_fp, "mul\n");
+            break;
+            
+            case CMD_DIV:
+                fprintf(original_text_fp, "div\n");
+            break;
+            
             case CMD_HLT:
                 fprintf(original_text_fp, "hlt\n");
-                pc++;
             break;
 
             case CMD_OUT:
                 fprintf(original_text_fp, "out\n");
-                pc++;
             break;
 
             default:
-                LogPrintf("Wrong comand");
-                return 0;
+                LogPrintf("\nWrong comand\n");
             break;
         }
     }
+
+    fclose(original_text_fp);
+}
+
+int main(int argc, char* argv[])
+{
+    FILE *fp = nullptr;
+    GetExecFileFromCLArgs(&fp, argc, argv);
+
+    Header header = {};
+    CheckHeaderFromFile(&header, &fp);
+
+    CPU cpu           = {};
+
+    GetCPUFromFile(&cpu, header.comands_number, fp);
+    
+    if (RecoverProgram(&cpu) != 0)
+        return -1;
 }

@@ -7,8 +7,8 @@
 #include <string.h>
 #include <cstdint>
 
-#include "..\Errors\Errors.h"
-#include "Logging.h"
+#include "Errors.h"
+#include "Logging\Logging.h"
 
 const char StackLogs[] = "StackLogs.txt";
 
@@ -57,16 +57,16 @@ typedef struct Stack
 
 void   DumpStack(Stack *stk, int deep, const char function[], const char file[], int line);
 
-size_t   StackCheck(Stack* stk, int line, const char function[], const char file[]);
-size_t   StackConstructor(Stack* stk, int capacity, int line, const char function[], const char file[], const char name[]);
-size_t   StackDtor(Stack* stk);
-size_t   StackResizeUp(Stack* stk);
-size_t   StackPush(Stack* stk, Elem value);
-size_t   StackResizeDown(Stack* stk);
-Elem     StackPop(Stack* stk, size_t *err);
-uint64_t GetStructHash(Stack* stk);
-size_t   ChangeStackData(Stack* stk, int resizeType);
-void     Rehash(Stack* stk);
+inline size_t   StackCheck(Stack* stk, int line, const char function[], const char file[]);
+inline size_t   StackConstructor(Stack* stk, int capacity, int line, const char function[], const char file[], const char name[]);
+inline size_t   StackDtor(Stack* stk);
+inline size_t   StackResizeUp(Stack* stk);
+inline size_t   StackPush(Stack* stk, Elem value);
+inline size_t   StackResizeDown(Stack* stk);
+inline Elem     StackPop(Stack* stk, size_t *err);
+inline uint64_t GetStructHash(Stack* stk);
+inline size_t   ChangeStackData(Stack* stk, int resizeType);
+inline void     Rehash(Stack* stk);
 
 #define DUMP_STACK(stk) { DumpStack(&stk, DUMP_LEVEL, __PRETTY_FUNCTION__, __FILE__, __LINE__); }
 

@@ -7,7 +7,7 @@ typedef int Elem;
 #define LOGS_TO_FILE
 
 #include "Assembler.h"
-#include "Libs/Logging.h"
+#include "Libs/Logging/Logging.h"
 #include "Libs/FileWork/FileWork.h"
 #include "Libs/ComandSystem.h"
 

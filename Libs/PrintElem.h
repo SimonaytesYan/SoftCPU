@@ -2,7 +2,8 @@
 #define __PRINT_ELEM_SYM__
 
 #include <stdio.h>
-#include "Logging.h"
+#include "Logging\Logging.h"
+#include "Errors.h"
 
 const int    OUTPUT_TYPE = 0;   //!This constant is used to print stack elements to logs in right format
                                 //!0 - int
@@ -36,15 +37,8 @@ size_t PrintElem(Elem value)
             format[3] = 'u';
         break;
     }
-        
-    #ifdef LOGS_TO_CONSOLE
-        printf(format, value);
-    #endif
-    #ifdef LOGS_TO_FILE
-        if (logs_file == nullptr)
-            return ERROR_LOGS_OPEN;
-        fprintf(logs_file, format, value);
-    #endif
+    
+    LogPrintf(format, value);
 
     return NO_ERROR; 
 }

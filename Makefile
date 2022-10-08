@@ -1,20 +1,26 @@
 
-all: assembler processor file_work
+all: logging assembler_exe processor_exe file_work
 	.\Exe\Comp.exe
 	.\Exe\Start.exe a.sy
 
-assembler:
-	g++ Assembler.cpp FileWork.o -o Exe\Comp.exe
+assembler_exe:
+	g++ Assembler.cpp Logging.o FileWork.o -o Exe\Comp.exe
 
-processor:
-	g++ Processor.cpp -o Exe\Start.exe
+processor_exe:
+	g++ Processor.cpp Logging.o -o Exe\Start.exe
 
-interpret: file_work
+interpret_exe: file_work
 	g++ Interpreter.cpp.cpp FileWork.o -o Exe\Start.exe
 	.\Start.exe
 
-disassembler:
-	g++ Disassembler.cpp -o Exe\Disass.exe
+logging:
+	g++ -c Libs\Logging\Logging.cpp 
+
+processor_o:
+	g++ -c  Processor.cpp
+
+disassembler_exe: processor_o
+	g++ Disassembler.cpp Logging.o Processor.o -o Exe\Disass.exe
 	.\Disass.exe a.sy
 
 file_work:

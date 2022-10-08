@@ -1,7 +1,7 @@
 #ifndef __COMAND_SYSTEM_SYM__
 #define __COMAND_SYSTEM_SYM__
 
-#include "Logging.h"
+#include "Logging\Logging.h"
 
 enum COMANDS
 {

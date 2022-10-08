@@ -1,7 +1,12 @@
 #ifndef __CPU_SYM__
 #define __CPU_SYM__
 
+#define LOGS_TO_FILE
+
+typedef int Elem;
+
 #include "Libs\PrintElem.h"
+#include "Libs\Logging\Logging.h"
 #include "Libs\Stack.h"
 #include "Libs\ComandSystem.h"
 
@@ -13,11 +18,11 @@ struct CPU
     Stack stk            = {};
 };
 
+int  GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[]);
+
+int  CheckHeaderFromFile(Header *header, FILE** executable_file);
+
 int  GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file);
-
-int  OpenFileAndCheckHeader(Header *header, FILE** executable_file);
-
-int  GetExecFileFromCMDArgs(FILE** fp, int argc, char* argv[]);
 
 void Run(CPU* cpu);
 

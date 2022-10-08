@@ -1,12 +1,4 @@
-typedef int Elem;
-#define LOGS_TO_FILE
-
 #include "Processor.h"
-
-#include "Libs\PrintElem.h"
-#include "Libs\Logging.h"
-#include "Libs\Stack.h"
-#include "Libs\ComandSystem.h"
 
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 {
@@ -25,29 +17,28 @@ int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
     return 0;
 }
 
-int OpenFileAndCheckHeader(Header *header, FILE** executable_file)
+int CheckHeaderFromFile(Header *header, FILE* executable_file)
 {
-    CHECK(executable_file  == nullptr, "\nDamaged executable file\n",   -1);
-    CHECK(*executable_file == nullptr, "\nExecutable file = nullptr\n", -1); 
+    CHECK(executable_file == nullptr, "\nExecutable file = nullptr\n", -1); 
 
-    fread(header, sizeof(*header), 1, *executable_file);
+    fread(header, sizeof(*header), 1, executable_file);
 
     CHECK(header->signature != SIGNATURE,   "\nFile isn`t executable\n",     -1); 
     CHECK(header->version   != ASM_VERSION, "\nWrong version of compiler\n", -1);
     return 0;
 }
 
-int GetExecFileFromCMDArgs(FILE** fp, int argc, char* argv[])
+int GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[])
 {
     CHECK(fp   == nullptr, "\nFp damaged\n",                    -1);
     CHECK(argv == nullptr, "\nArgv damaged\n",                  -1);
     CHECK(argc != 2,       "\nWrong number of cmd arguments\n", -1);
 
     char* executable_file_name = argv[1];
-
-    *fp = fopen(executable_file_name, "rb");
-    CHECK(*fp == nullptr, "\nError during executable file open", -1); 
     
+    *fp = fopen(executable_file_name, "rb");
+    CHECK(*fp == nullptr, "\nError during executable file open", -1);   
+
     return 0;
 }
 
@@ -62,13 +53,12 @@ void Run(CPU* cpu)
 {
     Elem a1 = 0;
     Elem a2 = 0;
-    int* regs = (int*)calloc(REG_N, sizeof(int));
+    int regs[REG_N] = {};
 
     while (cpu->pc < cpu->number_comands)
     {
         int cmd = cpu->code[cpu->pc++];
         int arg = 0;
-        //printf("cmd = %d\n", cmd);
 
         switch(cmd & CMD_MASK)
         {
@@ -76,7 +66,6 @@ void Run(CPU* cpu)
                 if ((cmd & ARG_IMMED) != 0)
                 {
                     arg += cpu->code[cpu->pc++];
-                    //printf("Arg = %d\n", arg);
                 }
 
                 if ((cmd & ARG_REG) != 0)
@@ -126,11 +115,11 @@ int ExecProgramFromCL(int argc, char* argv[])
     OpenLogFile("CPULogs.txt");
 
     FILE* executable_file = nullptr;
-    if (GetExecFileFromCMDArgs(&executable_file, argc, argv) != 0)
+    if (GetExecFileFromCLArgs(&executable_file, argc, argv) != 0)
         return -1;
 
     Header header = {};
-    if (OpenFileAndCheckHeader(&header, &executable_file) != 0)
+    if (CheckHeaderFromFile(&header, executable_file) != 0)
         return -1;
 
     CPU cpu = {};
