@@ -2,18 +2,20 @@
 #define __PRINT_ELEM_SYM__
 
 #include <stdio.h>
-#include "Logging\Logging.h"
-#include "Errors.h"
 
-const int    OUTPUT_TYPE = 0;   //!This constant is used to print stack elements to logs in right format
-                                //!0 - int
-                                //!1 - char
-                                //!2 - float
-                                //!3 - double
-                                //!4 - long long
+#include "Errors.h"
+#include "Logging/Logging.h"
+
+const int OUTPUT_TYPE = 0;   //!This constant is used to print stack elements to logs in right format
+                             //!0 - int
+                             //!1 - char
+                             //!2 - float
+                             //!3 - double
+                             //!4 - long long
 
 #define LOGS_TO_FILE
-size_t PrintElem(Elem value)
+
+inline size_t PrintElem(Elem value)
 {
     char format[5] = "%";
     switch (OUTPUT_TYPE)

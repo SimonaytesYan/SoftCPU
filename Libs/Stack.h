@@ -55,7 +55,7 @@ typedef struct Stack
     uint64_t right_border = RIGHT_KENAR;
 } Stack;
 
-void   DumpStack(Stack *stk, int deep, const char function[], const char file[], int line);
+inline void   DumpStack(Stack *stk, int deep, const char function[], const char file[], int line);
 
 inline size_t   StackCheck(Stack* stk, int line, const char function[], const char file[]);
 inline size_t   StackConstructor(Stack* stk, int capacity, int line, const char function[], const char file[], const char name[]);
@@ -67,6 +67,7 @@ inline Elem     StackPop(Stack* stk, size_t *err);
 inline uint64_t GetStructHash(Stack* stk);
 inline size_t   ChangeStackData(Stack* stk, int resizeType);
 inline void     Rehash(Stack* stk);
+inline void     DoDumpStack(Stack* stk);
 
 #define DUMP_STACK(stk) { DumpStack(&stk, DUMP_LEVEL, __PRETTY_FUNCTION__, __FILE__, __LINE__); }
 

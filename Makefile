@@ -4,7 +4,7 @@ all: logging assembler_exe processor_exe file_work
 	.\Exe\Start.exe a.sy
 
 assembler_exe:
-	g++ Assembler.cpp Logging.o FileWork.o -o Exe\Comp.exe
+	g++ Assembler.cpp  Logging.o FileWork.o -o Exe\Comp.exe
 
 processor_exe:
 	g++ Processor.cpp Logging.o -o Exe\Start.exe
