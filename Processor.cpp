@@ -144,6 +144,6 @@ int ExecProgramFromCL(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
-    ExecProgramFromCL(argc, argv);
+    CHECK(ExecProgramFromCL(argc, argv) != 0, "", -1);
     system("Pause");
 }

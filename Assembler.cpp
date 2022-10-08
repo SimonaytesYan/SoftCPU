@@ -175,6 +175,8 @@ int PutProgramToFile(Header* header, int* comands)
     fclose(executable_file);
 }
 
+
+
 int main()
 {
     CHECK(OpenLogFile("AssLogs.txt") != 0, "Error while logs open\n", -1);
