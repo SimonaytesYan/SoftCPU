@@ -1,18 +1,12 @@
 typedef int Elem;
 #define LOGS_TO_FILE
 
+#include "Processor.h"
+
 #include "Libs\PrintElem.h"
 #include "Libs\Logging.h"
 #include "Libs\Stack.h"
 #include "Libs\ComandSystem.h"
-
-struct CPU
-{
-    int*  code           = nullptr;
-    int   number_comands = 0; 
-    int   pc             = 0;
-    Stack stk            = {};
-};
 
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 {
@@ -127,7 +121,7 @@ void Run(CPU* cpu)
 }
 #undef CaseCMD
 
-int main(int argc, char* argv[])
+int ExecProgramFromCL(int argc, char* argv[])
 {
     OpenLogFile("CPULogs.txt");
 
@@ -146,6 +140,10 @@ int main(int argc, char* argv[])
     Run(&cpu);
 
     CloseLogFile();
+}
 
+int main(int argc, char* argv[])
+{
+    ExecProgramFromCL(argc, argv);
     system("Pause");
 }
