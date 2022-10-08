@@ -6,23 +6,15 @@
 typedef int Elem;
 #define LOGS_TO_FILE
 
-#include "Libs/PrintElem.h"
+#include "Assembler.h"
 #include "Libs/Logging.h"
 #include "Libs/FileWork/FileWork.h"
-#include "Errors/Errors.h"
 #include "Libs/ComandSystem.h"
-#include "Libs/PrintElem.h"
 
 const char EXECUTABLE[]  = "a.sy";
 
 const int MAX_COMAND_LENGHT = 100;
 
-//!--------------
-//!
-//!@param [out] text        Array lines of program 
-//!@param [out] numer_lines number lines in program
-//!
-//!---------------
 int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text)
 {
     CHECK(number_lines  == nullptr, "&number_lines = nullptr\n", -1);
@@ -89,12 +81,6 @@ int ParseArgs(const char* args, int** comands, int* comand_index)
     return 0;
 }
 
-//!--------------
-//!
-//!@param [out] comands       Array for program in binary representation 
-//!@param [out] numer_comands Number comands in "comands" array
-//!
-//!---------------
 int Compilation(int** comands, int* number_comand, int number_lines, const char** text)
 {
     CHECK(number_comand == nullptr, "number_comand = nullptr\n", -1);
