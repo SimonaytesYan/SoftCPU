@@ -57,6 +57,7 @@ void Run(CPU* cpu)
 
     while (cpu->pc < cpu->number_comands)
     {
+        size_t error = 0;
         int cmd = cpu->code[cpu->pc++];
         int arg = 0;
 
@@ -64,13 +65,19 @@ void Run(CPU* cpu)
         {
             case CMD_PUSH:
                 if ((cmd & ARG_IMMED) != 0)
-                {
                     arg += cpu->code[cpu->pc++];
-                }
 
                 if ((cmd & ARG_REG) != 0)
-                {
                     arg += regs[cpu->code[cpu->pc++]];
+
+                if ((cmd & ARG_MEM) != 0)
+                {
+                    if (arg < 0 || arg >= RAM_SIZE)
+                    {
+                        LogPrintf("\nAttempt to read from wrong addres in ram\n");
+                        return;                        
+                    }
+                    arg = cpu->ram[arg];                    
                 }
 
                 if (cpu->pc < cpu->number_comands - 1)
@@ -85,15 +92,54 @@ void Run(CPU* cpu)
             break;
 
             case CMD_POP:
-                if ((cmd & ARG_REG) != 0)
+                error = 0;
+                a1 = StackPop(&(cpu->stk), &error);
+
+                if (error != NO_ERROR)
                 {
-                    int reg   = cpu->code[cpu->pc++];
-                    if (reg <= 0 || reg > REG_N)
+                    LogPrintf("Error during pop\n");
+                    return;
+                }
+
+                if ((cmd & ARG_MEM) != 0)
+                {
+                    arg = 0;
+
+                    if ((cmd & ARG_IMMED) != 0)
+                        arg += cpu->code[cpu->pc++];
+
+                    if ((cmd & ARG_REG) != 0)
                     {
-                        LogPrintf("\nWrong register number in pop\n");
-                    }   
-                    a1        = StackPop(&(cpu->stk));
-                    regs[reg] = a1;
+                        int reg = cpu->code[cpu->pc++];
+
+                        if (reg <= 0 || reg > REG_N)
+                        {
+                            LogPrintf("\nWrong register number in pop\n");
+                            return;
+                        }
+
+                        arg += regs[reg];
+                    }
+
+                    if (arg < 0 || arg >= RAM_SIZE)
+                    {
+                        LogPrintf("\nAttempt write to wrong addres in ram\n");
+                        return;                        
+                    }
+
+                    cpu->ram[arg] = a1;                    
+                }
+                else
+                {
+                    if ((cmd & ARG_REG) != 0)
+                    {
+                        int reg = cpu->code[cpu->pc++];
+                        if (reg <= 0 || reg > REG_N)
+                        {
+                            LogPrintf("\nWrong register number in pop\n");
+                        }
+                        regs[reg] = a1;
+                    }
                 }
             break;
 

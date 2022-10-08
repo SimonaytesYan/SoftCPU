@@ -172,9 +172,9 @@ int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand,
 {
     if(ParseArgs(args, comands, comand_index, comand, arg1, arg2, line) != 0)
         return -1;
-    
-    CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);        
 
+    CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
+    return 0;
 }
 
 int Compilation(int** comands, int* number_comand, int number_lines, const char** text)
