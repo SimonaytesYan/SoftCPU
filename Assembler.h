@@ -11,7 +11,11 @@
 //!---------------
 int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text);
 
-int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2);
+int CheckSquereBracket(const char* args, int program_line);
+
+int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line);
+
+int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line);
 
 //!--------------
 //!

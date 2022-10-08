@@ -10,12 +10,14 @@ typedef int Elem;
 #include "Libs\Stack.h"
 #include "Libs\ComandSystem\ComandSystem.h"
 
+const int RAM_SIZE = 100;
 struct CPU
 {
     int*  code           = nullptr;
     int   number_comands = 0;
     int   pc             = 0;
     Stack stk            = {};
+    int ram[RAM_SIZE]    = {};
 };
 
 int  GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[]);

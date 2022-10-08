@@ -1,8 +1,11 @@
 #include "Logging.h"
+#include "..\Errors.h"
+
+#define LOGS_TO_FILE
 
 #include <stdarg.h>
 
-#include "..\Errors.h"
+
 
 FILE* logs_file = nullptr;
 

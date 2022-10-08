@@ -38,7 +38,7 @@ struct Header
 {
     int signature      = -1;
     int version        = -1;
-    int comands_number = -1; 
+    int comands_number = -1;
 };
 
 int InitHeader(Header* header, int comands_number);

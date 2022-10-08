@@ -37,7 +37,39 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
     return 0;
 }
 
-int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2)
+int CheckSquereBracket(const char* args, int program_line, bool* ram)
+{
+    int  opened = 0;
+    int  closed = 0; 
+    int  i = 0;
+    
+    while(args[i] != '\0')
+    {
+        if (args[i] == '[')
+        {
+            opened++;
+            *ram = true;
+            CHECK_SYNTAX(opened > 1, "More than one opened breaket in line\n", -1, program_line);
+        }
+        else if (args[i] == ']')
+        {
+            closed++;
+            CHECK_SYNTAX(closed > 1, "More than one closed breaket in line\n", -1, program_line);
+            CHECK_SYNTAX(opened == 0, "Closed breaket before opened\n",        -1, program_line);
+        }
+        else if (closed == 1)
+        {
+            CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t', "Any symbols after closed bracket\n", -1, program_line);
+        }
+
+        i++;
+    }
+    CHECK_SYNTAX(opened - closed != 0, "A square bracket is not closed\n", -1, program_line);
+
+    return 0;
+}
+
+int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line)
 {
     CHECK(arg1    == nullptr, "arg1 = nullptr",    -1);
     CHECK(arg2    == nullptr, "arg2 = nullptr",    -1);
@@ -45,17 +77,20 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
     CHECK(comands == nullptr, "comands = nullptr", -1);
     CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
 
-    //char* SquareBracket = strtok((char*)args, " \t");
-    //if (first)
+    *comand = 0;
+    bool ram = false;
+    if (CheckSquereBracket(args, line, &ram) != 0)
+        return -1;
+    if (ram)
+        *comand |= ARG_MEM;
     
-    char separators[] = " \t+";
+    char separators[] = " \t+[]";
     char* arg_1 = strtok((char*)args, separators);
     char* arg_2 = strtok(nullptr, separators);
 
-    *comand = 0;
-
-    CHECK((arg_1 == nullptr), "Wrong push args\n", -1);
-        
+    CHECK_SYNTAX((arg_1 == nullptr), "Wrong push args. arg_1 = nullptr\n", -1, line);
+    
+    printf("arg1 = <%s>\n", arg_1);
     if (0 <= arg_1[0] - '0' && arg_1[0] - '0' <= 9)
     {
         *comand |= ARG_IMMED;
@@ -83,14 +118,14 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
     }
     else
     {
-        CHECK(1, "Wrong register name\n", -1);
+        CHECK_SYNTAX(1, "Wrong register name\n", -1, line);
     }
 
     if (arg_2 != nullptr)
     {
         if (0 <= arg_2[0] - '0' && arg_2[0] - '0' <= 9)
         {
-            CHECK((*comand & ARG_IMMED) != 0, "Wrong args\n", -1);
+            CHECK_SYNTAX((*comand & ARG_IMMED) != 0, "Wrong args\n", -1, line);
 
             *comand |= ARG_IMMED;
             *arg2    = atoi(arg_2);
@@ -101,7 +136,7 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
         }
         else 
         {
-            CHECK((*comand & ARG_REG) != 0, "Wrong  args\n", -1);
+            CHECK_SYNTAX((*comand & ARG_REG) != 0, "Wrong  args\n", -1, line);
 
             if (stricmp(arg_2, "rax") == 0)
             {
@@ -125,7 +160,7 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
             }
             else
             {
-                CHECK(1, "Wrong register name\n", -1);
+                CHECK_SYNTAX(1, "Wrong register name\n", -1, line);
             }
         }
     }
@@ -133,11 +168,12 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
     return 0;
 }
 
-int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2)
+int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line)
 {
-    CHECK(ParseArgs(args, comands, comand_index, comand, arg1, arg2), "", -1);
+    if(ParseArgs(args, comands, comand_index, comand, arg1, arg2, line) != 0)
+        return -1;
     
-    CHECK(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1);        
+    CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);        
 
 }
 
@@ -164,7 +200,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
             int arg1   = -1;
             int arg2   = -1;
             int comand = 0;
-            CHECK(ParseArgs(args, *comands, comand_index, &comand, &arg1, &arg2) != 0, "Wrong push arg", -1);
+            CHECK_SYNTAX(ParseArgs(args, *comands, comand_index, &comand, &arg1, &arg2, line + 1) != 0, "Wrong push arg", -1, line + 1);
 
             (*comands)[comand_index++] = comand | CMD_PUSH;
             if (arg1 != -1)
@@ -178,7 +214,7 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
             int arg2   = -1;
             int comand = 0;
             const char* args = text[line] + number_few_char; 
-            CHECK(GetArgsForPop(args, *comands, comand_index, &comand, &arg1, &arg2) != 0, "Wrong pop arg", -1);  
+            CHECK_SYNTAX(GetArgsForPop(args, *comands, comand_index, &comand, &arg1, &arg2, line + 1) != 0, "Wrong pop arg", -1, line + 1);  
             (*comands)[comand_index++] = comand | CMD_POP;
             if (arg1 != -1)
                 (*comands)[comand_index++] = arg1;
