@@ -4,17 +4,21 @@ void DumpCPU(CPU* cpu)
 {
     CHECK(cpu == nullptr, "Error in dump\n", (void)0);
 
-    LogPrintf("number_comands = %p\n", cpu->number_comands);
-    LogPrintf("pc             = %p\n", cpu->pc);
+    LogPrintf("\nnumber_comands = %d\n", cpu->number_comands);
+    LogPrintf("pc             = %d\n", cpu->pc);
     LogPrintf("code           = %p\n", cpu->code);
 
     LogPrintf("regs:\n{\n");
     for(int i = 0; i < REG_N; i++)
-        LogPrintf("\tr%cx = %d\n", i + 'a', cpu->regs[i]);
+        LogPrintf("\tr%cx = %d\n", i + 'a', cpu->regs[i + 1]);
     LogPrintf("}\n");
 
+    LogPrintf("ram:\n{\n");
+    for(int i = 0; i < RAM_SIZE; i++)
+        LogPrintf("\t[%d] = %d\n", i, cpu->ram[i]);
+    LogPrintf("}\n");
+    
     DUMP_STACK(cpu->stk);
-
 }
 
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
@@ -78,7 +82,7 @@ void Run(CPU* cpu)
     {
         size_t error = 0;
         int cmd = cpu->code[cpu->pc++];
-        printf("[%d] = %d\n", cpu->pc - 1, cmd);
+        LogPrintf("[%d] = %d\n", cpu->pc - 1, cmd);
         int arg = 0;
 
         switch(cmd & CMD_MASK)
@@ -100,7 +104,7 @@ void Run(CPU* cpu)
                     arg = cpu->ram[arg];                    
                 }
 
-                printf("arg in push = %d\n", arg);
+                LogPrintf("arg in push = %d\n", arg);
                 StackPush(&cpu->stk, arg);
             break;
 
@@ -153,7 +157,7 @@ void Run(CPU* cpu)
                 error = 0;
                 a1 = StackPop(&(cpu->stk), &error);
                 CHECK(error != NO_ERROR, "Error during out", (void)0);
-                printf("%d\n", StackPop(&cpu->stk));
+                printf("%d\n", a1);
             break;
 
             case CMD_DUMP:

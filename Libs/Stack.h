@@ -233,18 +233,19 @@ size_t StackCheck(Stack* stk, int line, const char function[], const char file[]
             error |= DEBUG_INFO_DAMAGED; 
     }
 
-    
-    LogPrintf("Stack = %p\n" "Chech status = %d\n", stk, error);
-    LogPrintf("At %s in %s(%d)\n", function, file, line); 
     if (error != 0)
     {
-        for(size_t i = 0; i < 32; i++)
-            if (error & (1 << i))
-                LogPrintf(ERROR_DESCRIPTION[i]);
+        LogPrintf("Stack = %p\n" "Chech status = %d\n", stk, error);
+        LogPrintf("At %s in %s(%d)\n", function, file, line); 
+        if (error != 0)
+        {
+            for(size_t i = 0; i < 32; i++)
+                if (error & (1 << i))
+                    LogPrintf(ERROR_DESCRIPTION[i]);
+            LogPrintf("\n");
+        }
         LogPrintf("\n");
     }
-    LogPrintf("\n");
-    
     return error;
 }
 
