@@ -62,6 +62,7 @@ void Run(CPU* cpu)
     {
         size_t error = 0;
         int cmd = cpu->code[cpu->pc++];
+        printf("[%d] = %d\n", cpu->pc - 1, cmd);
         int arg = 0;
 
         switch(cmd & CMD_MASK)

@@ -100,10 +100,10 @@ int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, 
     else 
     {
         CHECK_SYNTAX((*comand & ARG_REG) != 0, "Wrong  args\n", -1, line);
+        *comand |= ARG_REG;
 
         if (stricmp(char_arg, "rax") == 0)
         {
-            *comand |= ARG_REG;
             if (arg_number == 1)
                 *arg1 = RAX;
             else
@@ -111,7 +111,6 @@ int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, 
         }
         else if (stricmp(char_arg, "rbx") == 0)
         {
-            *comand |= ARG_REG;
             if (arg_number == 1)
                 *arg1 = RBX;
             else
@@ -119,7 +118,6 @@ int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, 
         }
         else if (stricmp(char_arg, "rcx") == 0)
         {
-            *comand |= ARG_REG;
             if (arg_number == 1)
                 *arg1 = RCX;
             else
@@ -127,7 +125,6 @@ int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, 
         }
         else if (stricmp(char_arg, "rdx") == 0)
         {
-            *comand |= ARG_REG;
             if (arg_number == 1)
                 *arg1 = RDX;
             else
@@ -147,11 +144,11 @@ int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2,
     CHECK(args    == nullptr, "args = nullptr",    -1);
     CHECK(comands == nullptr, "comands = nullptr", -1);
     CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
-
-    *comand = 0;
+    
     bool ram = false;
     if (CheckSquereBracket(args, line, &ram) != 0)
         return -1;
+
     if (ram)
         *comand |= ARG_MEM;
     
@@ -177,7 +174,7 @@ int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* a
     return 0;
 }
 
-int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, int line, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int))
+int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int), int line)
 {
     CHECK(args     == nullptr, "args = nullptr",    -1);
     CHECK(comands  == nullptr, "comands = nullptr", -1);
@@ -186,6 +183,7 @@ int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, 
     int arg1   = -1;
     int arg2   = -1;
     int comand = comand_type;
+    LogPrintf("comand = %d\n", comand);
     if (Parse(args, *comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
@@ -229,12 +227,12 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         {
             LogPrintf("push\n");
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, line, CMD_PUSH, ParseArgs), "Wrong push args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, CMD_PUSH, ParseArgs, line), "Wrong push args", -1, line + 1);
         }
         else if(stricmp(cmd, "pop") == 0)
         { 
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, line, CMD_POP, GetArgsForPop), "Wrong pop args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, CMD_POP, GetArgsForPop, line), "Wrong pop args", -1, line + 1);
         }
         else if (stricmp(cmd, "add") == 0)
         {
