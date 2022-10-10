@@ -11,6 +11,7 @@ enum COMANDS
     CMD_DIV  = 5,
     CMD_OUT  = 6,
     CMD_POP  = 7,
+    CMD_DUMP = 8,
 };
 
 const int REG_N = 4;
@@ -32,7 +33,7 @@ enum CMD_MASKS
 };
 
 const int SIGNATURE   = 'S' * 256 + 'Y';
-const int ASM_VERSION = 1;
+const int ASM_VERSION = 2;
 
 struct Header
 {

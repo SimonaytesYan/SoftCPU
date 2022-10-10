@@ -22,7 +22,7 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
     CHECK(original_text == nullptr, "original_text = nullptr\n", -1);
 
     FILE* program_file = fopen(program, "r");
-    CHECK(program_file == nullptr, "Error while logs open\n", -1);
+    CHECK(program_file == nullptr, "Error while program text open\n", -1);
 
     int   file_size = get_text_size(program);
     *original_text  = (char*) calloc(file_size + 1, sizeof(char));
@@ -140,7 +140,7 @@ int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, 
     }
 }
 
-int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line)
+int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
 {
     CHECK(arg1    == nullptr, "arg1 = nullptr",    -1);
     CHECK(arg2    == nullptr, "arg2 = nullptr",    -1);
@@ -161,23 +161,23 @@ int ParseArgs(const char* args, int* comands, int comand_index, int* comand, int
 
     CHECK_SYNTAX((arg_1 == nullptr), "Wrong push args. arg_1 = nullptr\n", -1, line);
     
-    printf("arg1 = <%s>\n", arg_1);
     ArgToInt(arg_1, comand, arg1, arg2, 1, line);
-    ArgToInt(arg_2, comand, arg2, arg2, 1, line);
+    if (arg_2 != nullptr)
+        ArgToInt(arg_2, comand, arg2, arg2, 1, line);
 
     return 0;
 }
 
-int GetArgsForPop(const char* args, int* comands, int comand_index, int* comand, int* arg1, int* arg2, int line)
+int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
 {
-    if(ParseArgs(args, comands, comand_index, comand, arg1, arg2, line) != 0)
+    if(ParseArgs(args, comands, comand, arg1, arg2, line) != 0)
         return -1;
 
     CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
     return 0;
 }
 
-int PutArgsAndComandInArray(const char* args, int** comands, int comand_index, int line, int comand_type, int (*Parse)(const char*, int*, int, int*, int*, int*, int))
+int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, int line, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int))
 {
     CHECK(args     == nullptr, "args = nullptr",    -1);
     CHECK(comands  == nullptr, "comands = nullptr", -1);
@@ -185,15 +185,19 @@ int PutArgsAndComandInArray(const char* args, int** comands, int comand_index, i
 
     int arg1   = -1;
     int arg2   = -1;
-    int comand = 0;
-    if (Parse(args, *comands, comand_index, &comand, &arg1, &arg2, line + 1) != 0)
+    int comand = comand_type;
+    if (Parse(args, *comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
-    (*comands)[comand_index++] = comand | comand_type;
+    LogPrintf("comand = %d\n", comand);
+    (*comands)[(*comand_index)++] = comand;
+    LogPrintf("arg1 = %d\n", arg1);
     if (arg1 != -1)
-        (*comands)[comand_index++] = arg1;
+        (*comands)[(*comand_index)++] = arg1;
     if (arg2 != -1)
-        (*comands)[comand_index++] = arg2;
+        (*comands)[(*comand_index)++] = arg2;
+
+    return 0;
 }
 
 //!------------------------
@@ -218,18 +222,19 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
 
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
-        if (cmd == "")
+        if (strlen(cmd) == 0)
             continue;
 
         if (stricmp(cmd, "push") == 0)
         {
+            LogPrintf("push\n");
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, comand_index, line, CMD_PUSH, ParseArgs), "Wrong push args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, line, CMD_PUSH, ParseArgs), "Wrong push args", -1, line + 1);
         }
         else if(stricmp(cmd, "pop") == 0)
         { 
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, comand_index, line, CMD_POP, GetArgsForPop), "Wrong pop args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, line, CMD_POP, GetArgsForPop), "Wrong pop args", -1, line + 1);
         }
         else if (stricmp(cmd, "add") == 0)
         {
@@ -255,6 +260,10 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         {
             (*comands)[comand_index++] = CMD_HLT;
             break;
+        }
+        else if (stricmp(cmd, "dump") == 0)
+        {
+            (*comands)[comand_index++] = CMD_DUMP;
         }
         else
         {
@@ -287,7 +296,7 @@ int GetProgramAndCompile(const char* program_file)
     CHECK(OpenLogFile("Assembler/AssLogs.txt") != 0, "Error while logs open\n", -1);
 
     int          number_lines   = 0;
-    const char **text           = nullptr;
+    const char** text           = nullptr;
     char*        original_text  = nullptr; 
     
     CHECK(GetProgramText(program_file, &number_lines, &text, &original_text) != 0, "Error during read text program\n", -1);
@@ -296,6 +305,8 @@ int GetProgramAndCompile(const char* program_file)
     int  number_comands = 0;
 
     Compilation(&comands, &number_comands, number_lines, text);
+    for(int i = 0; i < number_comands; i++)
+        LogPrintf("comands[%d] = %d ", i, comands[i] );
     
     Header header = {};
     InitHeader(&header, number_comands);

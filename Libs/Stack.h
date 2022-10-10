@@ -431,8 +431,10 @@ size_t ChangeStackData(Stack* stk, int newCapacity)
         stk->data = (Elem*)(mem_block + sizeof(LEFT_KENAR));
     }
     #else
-        if (stk->data == nullptr)
+        if (stk->data == nullptr || stk->data == POISON_PTR)
+        {
             stk->data = (Elem*)calloc(new_capacity, 1);
+        }
         else
             stk->data = (Elem*)realloc(stk->data, new_capacity);
     #endif

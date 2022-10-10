@@ -83,15 +83,8 @@ void Run(CPU* cpu)
                     arg = cpu->ram[arg];                    
                 }
 
-                if (cpu->pc < cpu->number_comands - 1)
-                {
-                    StackPush(&cpu->stk, arg);
-                }
-                else
-                {
-                    LogPrintf("\nWrong arguments in push\n");
-                    return;
-                }
+                printf("arg in push = %d", arg);
+                StackPush(&cpu->stk, arg);
             break;
 
             case CMD_POP:
@@ -140,7 +133,14 @@ void Run(CPU* cpu)
             break;
 
             case CMD_OUT:
+                error = 0;
+                a1 = StackPop(&(cpu->stk), &error);
+                CHECK(error != NO_ERROR, "Error during out", (void)0);
                 printf("%d\n", StackPop(&cpu->stk));
+            break;
+
+            case CMD_DUMP:
+                DUMP_STACK(cpu->stk);
             break;
 
             default:
