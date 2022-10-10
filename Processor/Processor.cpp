@@ -42,11 +42,14 @@ int GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[])
     return 0;
 }
 
-#define CaseCMD(CMD, oper)                       \
-    case CMD:                                    \
-        a1 = StackPop(&(cpu->stk));                \
-        a2 = StackPop(&(cpu->stk));                \
-        StackPush(&(cpu->stk), a2 oper a1);        \
+#define CaseCMD(CMD, oper)                                              \
+    case CMD:                                                           \
+        error = 0;                                                      \
+        a1 = StackPop(&(cpu->stk), &error);                             \
+        CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
+        a2 = StackPop(&(cpu->stk), &error);                             \
+        CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
+        StackPush(&(cpu->stk), a2 oper a1);                             \
     break;
 
 void Run(CPU* cpu)
@@ -68,15 +71,15 @@ void Run(CPU* cpu)
                     arg += cpu->code[cpu->pc++];
 
                 if ((cmd & ARG_REG) != 0)
-                    arg += regs[cpu->code[cpu->pc++]];
+                {
+                    int reg = cpu->code[cpu->pc++];
+                    CHECK((reg < 0 || reg > REG_N), "\nWrong register number in push\n", (void)0);
+                    arg += regs[reg];
+                }
 
                 if ((cmd & ARG_MEM) != 0)
                 {
-                    if (arg < 0 || arg >= RAM_SIZE)
-                    {
-                        LogPrintf("\nAttempt to read from wrong addres in ram\n");
-                        return;                        
-                    }
+                    CHECK(arg < 0 || arg >= RAM_SIZE, "\nAttempt to read from wrong addres in ram\n", (void)0);
                     arg = cpu->ram[arg];                    
                 }
 
@@ -94,12 +97,7 @@ void Run(CPU* cpu)
             case CMD_POP:
                 error = 0;
                 a1 = StackPop(&(cpu->stk), &error);
-
-                if (error != NO_ERROR)
-                {
-                    LogPrintf("Error during pop\n");
-                    return;
-                }
+                CHECK(error != NO_ERROR, "Error during stack pop", (void)0);
 
                 if ((cmd & ARG_MEM) != 0)
                 {
@@ -111,21 +109,12 @@ void Run(CPU* cpu)
                     if ((cmd & ARG_REG) != 0)
                     {
                         int reg = cpu->code[cpu->pc++];
-
-                        if (reg <= 0 || reg > REG_N)
-                        {
-                            LogPrintf("\nWrong register number in pop\n");
-                            return;
-                        }
+                        CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
 
                         arg += regs[reg];
                     }
-
-                    if (arg < 0 || arg >= RAM_SIZE)
-                    {
-                        LogPrintf("\nAttempt write to wrong addres in ram\n");
-                        return;                        
-                    }
+                    
+                    CHECK(arg < 0 || arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", (void)0);
 
                     cpu->ram[arg] = a1;                    
                 }
@@ -134,10 +123,8 @@ void Run(CPU* cpu)
                     if ((cmd & ARG_REG) != 0)
                     {
                         int reg = cpu->code[cpu->pc++];
-                        if (reg <= 0 || reg > REG_N)
-                        {
-                            LogPrintf("\nWrong register number in pop\n");
-                        }
+                        CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
+
                         regs[reg] = a1;
                     }
                 }
