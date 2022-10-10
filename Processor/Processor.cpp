@@ -1,5 +1,22 @@
 #include "Processor.h"
 
+void DumpCPU(CPU* cpu)
+{
+    CHECK(cpu == nullptr, "Error in dump\n", (void)0);
+
+    LogPrintf("number_comands = %p\n", cpu->number_comands);
+    LogPrintf("pc             = %p\n", cpu->pc);
+    LogPrintf("code           = %p\n", cpu->code);
+
+    LogPrintf("regs:\n{\n");
+    for(int i = 0; i < REG_N; i++)
+        LogPrintf("\tr%cx = %d\n", i + 'a', cpu->regs[i]);
+    LogPrintf("}\n");
+
+    DUMP_STACK(cpu->stk);
+
+}
+
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 {
     cpu->stk = {};
@@ -56,7 +73,6 @@ void Run(CPU* cpu)
 {
     Elem a1 = 0;
     Elem a2 = 0;
-    int regs[REG_N] = {};
 
     while (cpu->pc < cpu->number_comands)
     {
@@ -75,7 +91,7 @@ void Run(CPU* cpu)
                 {
                     int reg = cpu->code[cpu->pc++];
                     CHECK((reg < 0 || reg > REG_N), "\nWrong register number in push\n", (void)0);
-                    arg += regs[reg];
+                    arg += cpu->regs[reg];
                 }
 
                 if ((cmd & ARG_MEM) != 0)
@@ -84,7 +100,7 @@ void Run(CPU* cpu)
                     arg = cpu->ram[arg];                    
                 }
 
-                printf("arg in push = %d", arg);
+                printf("arg in push = %d\n", arg);
                 StackPush(&cpu->stk, arg);
             break;
 
@@ -105,7 +121,7 @@ void Run(CPU* cpu)
                         int reg = cpu->code[cpu->pc++];
                         CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
 
-                        arg += regs[reg];
+                        arg += cpu->regs[reg];
                     }
                     
                     CHECK(arg < 0 || arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", (void)0);
@@ -119,7 +135,7 @@ void Run(CPU* cpu)
                         int reg = cpu->code[cpu->pc++];
                         CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
 
-                        regs[reg] = a1;
+                        cpu->regs[reg] = a1;
                     }
                 }
             break;
@@ -141,7 +157,7 @@ void Run(CPU* cpu)
             break;
 
             case CMD_DUMP:
-                DUMP_STACK(cpu->stk);
+                DumpCPU(cpu);
             break;
 
             default:
