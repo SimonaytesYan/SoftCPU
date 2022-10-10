@@ -17,7 +17,7 @@ void DumpCPU(CPU* cpu)
     for(int i = 0; i < RAM_SIZE; i++)
         LogPrintf("\t[%d] = %d\n", i, cpu->ram[i]);
     LogPrintf("}\n");
-    
+
     DUMP_STACK(cpu->stk);
 }
 
@@ -142,6 +142,11 @@ void Run(CPU* cpu)
                         cpu->regs[reg] = a1;
                     }
                 }
+            break;
+
+            case CMD_JMP:
+                a1      = cpu->code[cpu->pc++];
+                cpu->pc = a1;
             break;
 
             CaseCMD(CMD_ADD, +);

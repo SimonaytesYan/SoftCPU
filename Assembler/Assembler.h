@@ -27,6 +27,6 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
 
 int PutProgramToFile(Header* header, int* comands);
 
-int GetProgramAndCompile(const char* program_file);
+int GetProgramCompileAndPutInFile(const char* program_file);
 
 #endif //__ASSEMBLER_SYM__

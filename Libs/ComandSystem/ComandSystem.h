@@ -12,6 +12,7 @@ enum COMANDS
     CMD_OUT  = 6,
     CMD_POP  = 7,
     CMD_DUMP = 8,
+    CMD_JMP  = 9,
 };
 
 const int REG_N = 4;

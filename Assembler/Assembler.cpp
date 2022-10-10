@@ -144,7 +144,7 @@ int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2,
     CHECK(args    == nullptr, "args = nullptr",    -1);
     CHECK(comands == nullptr, "comands = nullptr", -1);
     CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
-    
+
     bool ram = false;
     if (CheckSquereBracket(args, line, &ram) != 0)
         return -1;
@@ -171,6 +171,15 @@ int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* a
         return -1;
 
     CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
+    return 0;
+}
+
+int GetArgsForJmp(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
+{
+    if(ParseArgs(args, comands, comand, arg1, arg2, line) != 0)
+        return -1;
+
+    CHECK_SYNTAX((*comand & ARG_MEM) != 0 || (*comand & ARG_REG) != 0 || (*comand & ARG_IMMED) == 0, "Wrong jmp args", -1, line);
     return 0;
 }
 
@@ -214,12 +223,15 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
     CHECK(*comands == nullptr, "Error during allocation memory for comands array\n", -1);
 
     int comand_index = 0;
+    int* line_cmd = (int*)calloc(number_lines + 1, sizeof(int));
     for(int line = 0; line < number_lines; line++)
     {
         char cmd[MAX_COMAND_LENGHT] = "";
 
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
+
+        line_cmd[line + 1] = comand_index;
         if (strlen(cmd) == 0)
             continue;
 
@@ -263,6 +275,15 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         {
             (*comands)[comand_index++] = CMD_DUMP;
         }
+        else if(stricmp(cmd, "jmp") == 0)
+        {
+            (*comands)[comand_index++] = CMD_JMP;
+            const char* args = text[line] + number_few_char; 
+            int arg = -1;
+            sscanf(args, "%d", &arg);
+            if (arg > 0 && arg <= number_lines)
+                (*comands)[comand_index++] = line_cmd[arg];
+        }
         else
         {
             LogPrintf("Wrong comand in line %d\n", line + 1);
@@ -289,7 +310,7 @@ int PutProgramToFile(Header* header, int* comands)
     fclose(executable_file);
 }
 
-int GetProgramAndCompile(const char* program_file)
+int GetProgramCompileAndPutInFile(const char* program_file)
 {
     CHECK(OpenLogFile("Assembler/AssLogs.txt") != 0, "Error while logs open\n", -1);
 
@@ -317,5 +338,5 @@ int GetProgramAndCompile(const char* program_file)
 
 int main()
 {
-    GetProgramAndCompile("Program.txt");
+    GetProgramCompileAndPutInFile("Program.txt");
 }
