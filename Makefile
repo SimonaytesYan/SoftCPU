@@ -8,13 +8,13 @@ create_folders:
 	mkdir -p Obj
 
 assembler_exe: create_folders logging file_work comand_system
-	g++ Assembler.cpp Obj\ComandSystem.o Obj\Logging.o Obj\FileWork.o -o Exe\Comp.exe
+	g++ Assembler\Assembler.cpp Obj\ComandSystem.o Obj\Logging.o Obj\FileWork.o -o Exe\Comp.exe
 
 processor_o: create_folders
-	g++ -c  Processor.cpp -o Obj\Processor.o
+	g++ -c  Processor\Processor.cpp -o Obj\Processor.o
 
 processor_exe: create_folders logging comand_system
-	g++ Processor.cpp Obj\Logging.o Obj\ComandSystem.o -o Exe\Start.exe
+	g++ Processor\Processor.cpp Obj\Logging.o Obj\ComandSystem.o -o Exe\Start.exe
 
 interpret_exe: create_folders file_work
 	g++ Interpreter.cpp.cpp Obj\FileWork.o -o Exe\Start.exe

@@ -5,10 +5,10 @@
 
 typedef int Elem;
 
-#include "Libs\PrintElem.h"
-#include "Libs\Logging\Logging.h"
-#include "Libs\Stack.h"
-#include "Libs\ComandSystem\ComandSystem.h"
+#include "..\Libs\PrintElem.h"
+#include "..\Libs\Logging\Logging.h"
+#include "..\Libs\Stack.h"
+#include "..\Libs\ComandSystem\ComandSystem.h"
 
 const int RAM_SIZE = 100;
 struct CPU

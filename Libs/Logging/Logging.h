@@ -20,7 +20,8 @@ size_t LogPrintf(const char *format, ...);
 #define CHECK_SYNTAX(cond, msg, return_code, line)                                             \
     if (cond)                                                                                  \
     {                                                                                          \
-        LogPrintf("in line %d\n%s", line, msg);                                               \
+        if (msg != "")                                                                         \
+            LogPrintf("in line %d\n%s", line, msg);                                            \
         return return_code;                                                                    \
     }
 
