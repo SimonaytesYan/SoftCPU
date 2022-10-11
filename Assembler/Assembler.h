@@ -3,6 +3,27 @@
 
 #include "..\Libs\ComandSystem\ComandSystem.h"
 
+const int MAX_LABELS    = 64;
+const int MAX_LABEL_LEN = 20;
+
+struct Label 
+{
+    char name[MAX_LABEL_LEN] = "";
+    int  cmd_to              = -1;
+};
+
+void DumpLabels(Label* labels);
+
+//!-----------------
+//!@param [out] index
+//!
+//!-----------------
+int FindLabel(Label* labels, char* name, int* index);
+
+int GetArgsForJmp(const char* text, int* arg, Label* labels, int line);
+
+int AddLabel(char* arg, Label* label, int cmd_index, int line);
+
 //!--------------
 //!
 //!@param [out] text        Array lines of program 
@@ -23,7 +44,7 @@ int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* a
 //!@param [out] numer_comands Number comands in "comands" array
 //!
 //!---------------
-int Compilation(int** comands, int* number_comand, int number_lines, const char** text);
+int Compilation(int** comands, int* number_comand, Label* labels, int number_lines, const char** text, int number);
 
 int PutProgramToFile(Header* header, int* comands);
 

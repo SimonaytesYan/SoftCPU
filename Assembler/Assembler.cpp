@@ -15,6 +15,21 @@ const char EXECUTABLE[]  = "a.sy";
 
 const int MAX_COMAND_LENGHT = 100;
 
+void DumpLabels(Label* labels)
+{
+    if (labels == nullptr)
+        return;
+        
+    for(int i = 0; i < MAX_LABELS/10; i++)
+    {
+        printf("label[%d]\n", i);
+        printf("{\n");
+        printf("\tcmd_to = %d\n", labels[i].cmd_to);
+        printf("\tname   = <%s>\n", labels[i].name);
+        printf("}\n");
+    }
+}
+
 int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text)
 {
     CHECK(number_lines  == nullptr, "&number_lines = nullptr\n", -1);
@@ -74,7 +89,6 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
 //!@param [out] arg
 //!
 //!-----------------
-
 int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, int line)
 {
     CHECK(char_arg == nullptr, "char_arg = nullptr", -1);
@@ -174,16 +188,7 @@ int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* a
     return 0;
 }
 
-int GetArgsForJmp(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
-{
-    if(ParseArgs(args, comands, comand, arg1, arg2, line) != 0)
-        return -1;
-
-    CHECK_SYNTAX((*comand & ARG_MEM) != 0 || (*comand & ARG_REG) != 0 || (*comand & ARG_IMMED) == 0, "Wrong jmp args", -1, line);
-    return 0;
-}
-
-int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int), int line)
+int PutArgsAndComandInArray(const char* args, int* comands, int* comand_index, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int), int line)
 {
     CHECK(args     == nullptr, "args = nullptr",    -1);
     CHECK(comands  == nullptr, "comands = nullptr", -1);
@@ -192,38 +197,77 @@ int PutArgsAndComandInArray(const char* args, int** comands, int* comand_index, 
     int arg1   = -1;
     int arg2   = -1;
     int comand = comand_type;
-    LogPrintf("comand = %d\n", comand);
-    if (Parse(args, *comands, &comand, &arg1, &arg2, line + 1) != 0)
+    if (Parse(args, comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
-    LogPrintf("comand = %d\n", comand);
-    (*comands)[(*comand_index)++] = comand;
-    LogPrintf("arg1 = %d\n", arg1);
+    comands[(*comand_index)++] = comand;
     if (arg1 != -1)
-        (*comands)[(*comand_index)++] = arg1;
+        comands[(*comand_index)++] = arg1;
     if (arg2 != -1)
-        (*comands)[(*comand_index)++] = arg2;
+        comands[(*comand_index)++] = arg2;
 
     return 0;
 }
 
-//!------------------------
-//!@param [out] comands
-//!@param [out] number_comand
-//!
-//!--------------------------
+int FindLabel(Label* labels, char* name, int* index)
+{
+    for(int i = 0; i < MAX_LABELS; i++)
+    {
+        if (stricmp(name, labels[i].name) == 0)
+        {
+            *index = i; 
+            return 0;
+        }
+    }
 
-int Compilation(int** comands, int* number_comand, int number_lines, const char** text)
+    return -1;
+}
+
+int AddLabel(char* arg, Label* labels, int cmd_index, int line)
+{
+    int length = strlen(arg);
+    arg[length - 1] = '\0';
+    length--;
+
+    CHECK_SYNTAX(length > MAX_LABEL_LEN || length <= 0, "Label length is to big\n", -1, line);
+
+    int i = 0;
+    for(i = 0; i < MAX_LABELS; i++)
+    {
+        if (stricmp(arg, labels[i].name) == 0)
+            return 0;
+        if (strlen(labels[i].name) == 0)
+            break;
+    }
+    CHECK_SYNTAX(i >= MAX_LABELS, "Number of labels bigger than allowed\n", -1, line);
+    
+    labels[i].cmd_to = cmd_index;
+    strcpy(labels[i].name, arg);
+}
+
+int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
+{
+    char char_arg[MAX_LABEL_LEN] = "";
+    sscanf(text, "%s", char_arg);
+    
+    int index = 0;
+    CHECK_SYNTAX(FindLabel(labels, char_arg, &index) != 0, "Found undeclared label\n", -1, line);
+    
+    *arg = labels[index].cmd_to;
+
+    return 0;
+}
+
+int Compilation(int** comands, int* number_comand, Label* labels, int number_lines, const char** text, int number)
 {
     CHECK(number_comand == nullptr, "number_comand = nullptr\n", -1);
     CHECK(comands       == nullptr, "comands = nullptr\n",       -1);
 
-    *comands      = (int*)calloc(number_lines * 3 + 1, sizeof(int));
+    *comands = (int*)calloc(number_lines * 3 + 1, sizeof(int));
 
     CHECK(*comands == nullptr, "Error during allocation memory for comands array\n", -1);
 
     int comand_index = 0;
-    int* line_cmd = (int*)calloc(number_lines + 1, sizeof(int));
     for(int line = 0; line < number_lines; line++)
     {
         char cmd[MAX_COMAND_LENGHT] = "";
@@ -231,20 +275,18 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
 
-        line_cmd[line + 1] = comand_index;
         if (strlen(cmd) == 0)
             continue;
 
         if (stricmp(cmd, "push") == 0)
         {
-            LogPrintf("push\n");
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, CMD_PUSH, ParseArgs, line), "Wrong push args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, *comands, &comand_index, CMD_PUSH, ParseArgs, line), "Wrong push args", -1, line + 1);
         }
         else if(stricmp(cmd, "pop") == 0)
         { 
             const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, comands, &comand_index, CMD_POP, GetArgsForPop, line), "Wrong pop args", -1, line + 1);
+            CHECK_SYNTAX(PutArgsAndComandInArray(args, *comands, &comand_index, CMD_POP, GetArgsForPop, line), "Wrong pop args", -1, line + 1);
         }
         else if (stricmp(cmd, "add") == 0)
         {
@@ -278,21 +320,34 @@ int Compilation(int** comands, int* number_comand, int number_lines, const char*
         else if(stricmp(cmd, "jmp") == 0)
         {
             (*comands)[comand_index++] = CMD_JMP;
+
             const char* args = text[line] + number_few_char; 
-            int arg = -1;
-            sscanf(args, "%d", &arg);
-            if (arg > 0 && arg <= number_lines)
-                (*comands)[comand_index++] = line_cmd[arg];
+            int         arg  = 0;
+
+            if (number == 2)
+            {
+                if (GetArgsForJmp(args, &arg, labels, line + 1) != 0)
+                    return -1;
+            }
+
+            (*comands)[comand_index++] = arg;
         }
         else
         {
-            LogPrintf("Wrong comand in line %d\n", line + 1);
-            return -1;
+            if (cmd[strlen(cmd) - 1] == ':')
+            {
+                AddLabel(cmd, labels, comand_index, line + 1);
+            }
+            else
+            {
+                LogPrintf("Wrong comand in line %d\n", line + 1);
+                return -1;
+            }
         }
     }
 
     *number_comand = comand_index;
-    
+
     return 0;
 }
 
@@ -323,9 +378,13 @@ int GetProgramCompileAndPutInFile(const char* program_file)
     int* comands        = nullptr;
     int  number_comands = 0;
 
-    Compilation(&comands, &number_comands, number_lines, text);
-    for(int i = 0; i < number_comands; i++)
-        LogPrintf("comands[%d] = %d ", i, comands[i] );
+    Label labels[MAX_LABELS] = {};
+
+    Compilation(&comands, &number_comands, labels, number_lines, text, 1);
+
+    comands        = nullptr;
+    number_comands = 0;
+    Compilation(&comands, &number_comands, labels, number_lines, text, 2);
     
     Header header = {};
     InitHeader(&header, number_comands);
@@ -334,9 +393,10 @@ int GetProgramCompileAndPutInFile(const char* program_file)
 
     free(comands);
     CloseLogFile();
+
 }
 
 int main()
 {
-    GetProgramCompileAndPutInFile("Program.txt");
+    return GetProgramCompileAndPutInFile("Program.txt");
 }

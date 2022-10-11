@@ -5,8 +5,6 @@
 
 #include <stdarg.h>
 
-
-
 FILE* logs_file = nullptr;
 
 int OpenLogFile(const char* file_name)

@@ -173,7 +173,7 @@ void Run(CPU* cpu)
 
             case CMD_JMP:
                 a1      = cpu->code[cpu->pc++];
-                cpu->pc = a1;
+                cpu->pc = a1;   
             break;
 
             CaseCMD(CMD_ADD, +);
