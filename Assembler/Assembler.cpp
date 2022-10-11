@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 typedef int Elem;
 #define LOGS_TO_FILE
 
@@ -10,6 +9,16 @@ typedef int Elem;
 #include "../Libs/Logging/Logging.h"
 #include "../Libs/FileWork/FileWork.h"
 #include "../Libs/ComandSystem/ComandSystem.h"
+
+#define DEF_CMD(name, num, ...) \
+    CMD_##name = num,
+
+enum COMANDS
+{
+    #include "..\Cmd.h"
+};
+
+#undef DEF_CMD
 
 const char EXECUTABLE[]  = "a.sy";
 
@@ -176,28 +185,23 @@ int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2,
     if (arg_2 != nullptr)
         ArgToInt(arg_2, comand, arg2, arg2, 1, line);
 
+    if ((*comand & CMD_MASK) == CMD_POP)
+    {
+        CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
+    }
+
     return 0;
 }
 
-int GetArgsForPop(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
-{
-    if(ParseArgs(args, comands, comand, arg1, arg2, line) != 0)
-        return -1;
-
-    CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
-    return 0;
-}
-
-int PutArgsAndComandInArray(const char* args, int* comands, int* comand_index, int comand_type, int (*Parse)(const char*, int*, int*, int*, int*, int), int line)
+int PutArgsAndCmdInArray(const char* args, int* comands, int* comand_index, int comand_type, int line)
 {
     CHECK(args     == nullptr, "args = nullptr",    -1);
     CHECK(comands  == nullptr, "comands = nullptr", -1);
-    CHECK(Parse    == nullptr, "Parse = nullptr",   -1);
 
     int arg1   = -1;
     int arg2   = -1;
     int comand = comand_type;
-    if (Parse(args, comands, &comand, &arg1, &arg2, line + 1) != 0)
+    if (ParseArgs(args, comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
     comands[(*comand_index)++] = comand;
@@ -258,6 +262,33 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
     return 0;
 }
 
+#define DEF_CMD(name, num, arg, ...)                                                                 \
+    if (stricmp(cmd, #name) == 0)                                                                \
+    {                                                                                           \
+        if (arg == 1)                                                                           \
+        {                                                                                       \
+            const char* args = text[line] + number_few_char;                                    \
+            CHECK_SYNTAX(PutArgsAndCmdInArray(args, *comands, &comand_index, CMD_##name, line), "Wrong push args", -1, line + 1);    \
+        }                                                                                       \
+        else if (arg == 2)                                                                      \
+        {                                                                                       \
+            (*comands)[comand_index++] = num;                                                   \
+                                                                                                \
+            const char* args = text[line] + number_few_char;                                    \
+            int         argum  = 0;                                                             \
+                                                                                                \
+            if (number == 2)                                                                    \
+            {                                                                                   \
+                if (GetArgsForJmp(args, &argum, labels, line + 1) != 0)                         \
+                    return -1;                                                                  \
+            }                                                                                   \
+                                                                                                \
+            (*comands)[comand_index++] = argum;                                                   \
+        }                                                                                       \
+        else                                                                                    \
+            (*comands)[comand_index++] = num;                                                   \
+    } else
+
 int Compilation(int** comands, int* number_comand, Label* labels, int number_lines, const char** text, int number)
 {
     CHECK(number_comand == nullptr, "number_comand = nullptr\n", -1);
@@ -278,66 +309,11 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
         if (strlen(cmd) == 0)
             continue;
 
-        if (stricmp(cmd, "push") == 0)
-        {
-            const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, *comands, &comand_index, CMD_PUSH, ParseArgs, line), "Wrong push args", -1, line + 1);
-        }
-        else if(stricmp(cmd, "pop") == 0)
-        { 
-            const char* args = text[line] + number_few_char; 
-            CHECK_SYNTAX(PutArgsAndComandInArray(args, *comands, &comand_index, CMD_POP, GetArgsForPop, line), "Wrong pop args", -1, line + 1);
-        }
-        else if (stricmp(cmd, "add") == 0)
-        {
-            (*comands)[comand_index++] = CMD_ADD;
-        }
-        else if (stricmp(cmd, "div") == 0)
-        {
-            (*comands)[comand_index++] = CMD_DIV;
-        }
-        else if (stricmp(cmd, "sub") == 0)
-        {
-            (*comands)[comand_index++] = CMD_SUB;
-        }
-        else if (stricmp(cmd, "mul") == 0)
-        {
-            (*comands)[comand_index++] = CMD_MUL;
-        }
-        else if (stricmp(cmd, "out") == 0)
-        {
-            (*comands)[comand_index++] = CMD_OUT;
-        }
-        else if (stricmp(cmd, "hlt") == 0)
-        {
-            (*comands)[comand_index++] = CMD_HLT;
-            break;
-        }
-        else if (stricmp(cmd, "dump") == 0)
-        {
-            (*comands)[comand_index++] = CMD_DUMP;
-        }
-        else if(stricmp(cmd, "jmp") == 0)
-        {
-            (*comands)[comand_index++] = CMD_JMP;
-
-            const char* args = text[line] + number_few_char; 
-            int         arg  = 0;
-
-            if (number == 2)
-            {
-                if (GetArgsForJmp(args, &arg, labels, line + 1) != 0)
-                    return -1;
-            }
-
-            (*comands)[comand_index++] = arg;
-        }
-        else
+        #include "..\Cmd.h"
+        /*else*/
         {
             if (cmd[strlen(cmd) - 1] == ':')
-            {
                 AddLabel(cmd, labels, comand_index, line + 1);
-            }
             else
             {
                 LogPrintf("Wrong comand in line %d\n", line + 1);
@@ -350,6 +326,8 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
 
     return 0;
 }
+
+#undef DEF_CMD
 
 int PutProgramToFile(Header* header, int* comands)
 {
@@ -393,7 +371,6 @@ int GetProgramCompileAndPutInFile(const char* program_file)
 
     free(comands);
     CloseLogFile();
-
 }
 
 int main()

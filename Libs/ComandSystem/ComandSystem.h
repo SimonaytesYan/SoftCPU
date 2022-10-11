@@ -1,7 +1,7 @@
 #ifndef __COMAND_SYSTEM_SYM__
 #define __COMAND_SYSTEM_SYM__
 
-enum COMANDS
+/*enum COMANDS
 {
     CMD_HLT  = 0,
     CMD_PUSH = 1,
@@ -13,7 +13,7 @@ enum COMANDS
     CMD_POP  = 7,
     CMD_DUMP = 8,
     CMD_JMP  = 9,
-};
+};*/
 
 const int REG_N = 4;
 

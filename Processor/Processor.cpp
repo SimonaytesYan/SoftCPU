@@ -1,5 +1,15 @@
 #include "Processor.h"
 
+#define DEF_CMD(name, num, ...) \
+    CMD_##name = num,
+
+enum COMANDS
+{
+    #include "..\Cmd.h"
+};
+
+#undef DEF_CMD
+
 void DumpCPU(CPU* cpu)
 {
     CHECK(cpu == nullptr, "Error in dump\n", (void)0);
@@ -123,6 +133,7 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
     return 0;
 }
 
+
 #define CaseCMD(CMD, oper)                                              \
     case CMD:                                                           \
         error = 0;                                                      \
@@ -132,76 +143,29 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
         CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
         StackPush(&(cpu->stk), a2 oper a1);                             \
     break;
+
+#define DEF_CMD(name, num, arg, ...)                                    \
+    case CMD_##name:                                                    \
+        __VA_ARGS__                                                     \
+    break;
+
 void Run(CPU* cpu)
 {
-    Elem a1 = 0;
-    Elem a2 = 0;
-
     while (cpu->pc < cpu->number_comands)
     {
-        size_t error = 0;
         int cmd = cpu->code[cpu->pc++];
         LogPrintf("[%d] = %d\n", cpu->pc - 1, cmd);
-        int arg = 0;
 
         switch(cmd & CMD_MASK)
-        {
-            case CMD_PUSH:
-                arg = 0;
-                if (GetPushArg(&arg, cmd, cpu) != 0)
-                    return;
-                StackPush(&cpu->stk, arg);
-            break;
-
-            case CMD_POP:
-            {
-                error = 0;
-                a1 = StackPop(&(cpu->stk), &error);
-                CHECK(error != NO_ERROR, "Error during stack pop", (void)0);
-
-                arg = 0;
-                int write_to = 0;
-                if (GetPopArg(&arg, &write_to, cmd, cpu) != 0)
-                    return;
-                    
-                if (write_to == ARG_MEM)
-                    cpu->ram[arg] = a1;
-                if (write_to == ARG_REG)
-                    cpu->regs[arg] = a1;
-            }
-            break;
-
-            case CMD_JMP:
-                a1      = cpu->code[cpu->pc++];
-                cpu->pc = a1;   
-            break;
-
-            CaseCMD(CMD_ADD, +);
-            CaseCMD(CMD_SUB, -);
-            CaseCMD(CMD_MUL, *);
-            CaseCMD(CMD_DIV, /);
-            
-            case CMD_HLT:
-                return;
-            break;
-
-            case CMD_OUT:
-                error = 0;
-                a1 = StackPop(&(cpu->stk), &error);
-                CHECK(error != NO_ERROR, "Error during out", (void)0);
-                printf("%d\n", a1);
-            break;
-
-            case CMD_DUMP:
-                DumpCPU(cpu);
-            break;
-
+        {   
+            #include "..\Cmd.h"
             default:
                 LogPrintf("\nWrong comand\n");
             break;
         }
     }
 }
+#undef DEF_CMD
 #undef CaseCMD
 
 int ExecProgramFromCL(int argc, char* argv[])
