@@ -63,6 +63,66 @@ int GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[])
     return 0;
 }
 
+//!-------------------
+//!@param [out] arg
+//!
+//!-------------------
+int GetArg(int* arg, int cmd, CPU* cpu)
+{
+    *arg = 0;
+    if ((cmd & ARG_IMMED) != 0)
+        *arg += cpu->code[cpu->pc++];
+
+    if ((cmd & ARG_REG) != 0)
+    {
+        int reg = cpu->code[cpu->pc++];
+        CHECK((reg < 0 || reg > REG_N), "\nWrong register number in push\n", -1);
+        *arg += cpu->regs[reg];
+    }
+
+    return 0;
+}
+
+//!-------------------
+//!@param [out] arg
+//!
+//!-------------------
+int GetPushArg(int* arg, int cmd, CPU* cpu)
+{
+    if (GetArg(arg, cmd, cpu) != 0)
+        return -1;
+    if ((cmd & ARG_MEM) != 0)
+    {
+        CHECK(*arg < 0 || *arg >= RAM_SIZE, "\nAttempt to read from wrong addres in ram\n", -1);
+        *arg = cpu->ram[*arg];                
+    }
+
+    return 0;
+}
+
+//!-------------------
+//!@param [out] arg
+//!
+//!-------------------
+int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
+{
+    if (GetArg(arg, cmd, cpu) != 0)
+        return -1;
+    if ((cmd & ARG_MEM) != 0)
+    {
+        CHECK(*arg < 0 || *arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", -1);
+        *write_to = ARG_MEM;
+    }
+    else
+    {
+        CHECK((cmd & ARG_IMMED) != 0, "\nWrong pop arguments\n", -1);
+        CHECK(*arg < 0 || *arg > REG_N, "\nAttempt to write to wrong register in ram\n", -1);
+        *write_to = ARG_REG;
+    }
+
+    return 0;
+}
+
 #define CaseCMD(CMD, oper)                                              \
     case CMD:                                                           \
         error = 0;                                                      \
@@ -72,7 +132,6 @@ int GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[])
         CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
         StackPush(&(cpu->stk), a2 oper a1);                             \
     break;
-
 void Run(CPU* cpu)
 {
     Elem a1 = 0;
@@ -88,60 +147,28 @@ void Run(CPU* cpu)
         switch(cmd & CMD_MASK)
         {
             case CMD_PUSH:
-                if ((cmd & ARG_IMMED) != 0)
-                    arg += cpu->code[cpu->pc++];
-
-                if ((cmd & ARG_REG) != 0)
-                {
-                    int reg = cpu->code[cpu->pc++];
-                    CHECK((reg < 0 || reg > REG_N), "\nWrong register number in push\n", (void)0);
-                    arg += cpu->regs[reg];
-                }
-
-                if ((cmd & ARG_MEM) != 0)
-                {
-                    CHECK(arg < 0 || arg >= RAM_SIZE, "\nAttempt to read from wrong addres in ram\n", (void)0);
-                    arg = cpu->ram[arg];                    
-                }
-
-                LogPrintf("arg in push = %d\n", arg);
+                arg = 0;
+                if (GetPushArg(&arg, cmd, cpu) != 0)
+                    return;
                 StackPush(&cpu->stk, arg);
             break;
 
             case CMD_POP:
+            {
                 error = 0;
                 a1 = StackPop(&(cpu->stk), &error);
                 CHECK(error != NO_ERROR, "Error during stack pop", (void)0);
 
-                if ((cmd & ARG_MEM) != 0)
-                {
-                    arg = 0;
-
-                    if ((cmd & ARG_IMMED) != 0)
-                        arg += cpu->code[cpu->pc++];
-
-                    if ((cmd & ARG_REG) != 0)
-                    {
-                        int reg = cpu->code[cpu->pc++];
-                        CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
-
-                        arg += cpu->regs[reg];
-                    }
+                arg = 0;
+                int write_to = 0;
+                if (GetPopArg(&arg, &write_to, cmd, cpu) != 0)
+                    return;
                     
-                    CHECK(arg < 0 || arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", (void)0);
-
-                    cpu->ram[arg] = a1;                    
-                }
-                else
-                {
-                    if ((cmd & ARG_REG) != 0)
-                    {
-                        int reg = cpu->code[cpu->pc++];
-                        CHECK((reg <= 0 || reg > REG_N), "\nWrong register number in pop\n", (void)0);
-
-                        cpu->regs[reg] = a1;
-                    }
-                }
+                if (write_to == ARG_MEM)
+                    cpu->ram[arg] = a1;
+                if (write_to == ARG_REG)
+                    cpu->regs[arg] = a1;
+            }
             break;
 
             case CMD_JMP:
