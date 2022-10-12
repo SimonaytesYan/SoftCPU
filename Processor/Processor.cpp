@@ -119,7 +119,6 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
     if ((cmd & ARG_MEM) != 0)
     {
         GetArg(arg, cmd, cpu);
-        printf("cmd = %d\n", cmd);
         CHECK(*arg < 0 || *arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", -1);
         *write_to = ARG_MEM;
     }
@@ -133,6 +132,15 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
 
     return 0;
 }
+
+#define PUSH(arg) StackPush(&cpu->stk, arg); 
+#define POP(a)                                                          \
+{                                                                       \
+    size_t error = 0;                                                   \
+    Elem non_repeatable_name= StackPop(&(cpu->stk), &error);            \
+    CHECK(error != NO_ERROR, "Error during stack pop\n", (void)0);      \
+    a = non_repeatable_name;                                            \
+}                                                                        
 
 #define DEF_CMD(name, num, arg, ...)                                    \
     case CMD_##name:                                                    \

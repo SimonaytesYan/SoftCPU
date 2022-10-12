@@ -95,7 +95,6 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
 }
 
 
-#define REG(c) R##cX      
 //!-----------------
 //!@param [out] comand
 //!@param [out] arg
