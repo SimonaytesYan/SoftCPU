@@ -112,7 +112,7 @@ DEF_JMP_IF(JNE, 15, !=)
 
 DEF_CMD(CALL, 16, JMP_ARGS, 
 {                                                                   \
-    StackPush(&cpu->call_stack, cpu->code[cpu->pc]);                \
+    StackPush(&cpu->call_stack, cpu->pc + 1);                       \
     cpu->pc = cpu->code[cpu->pc++];                                 \
 })
 
@@ -121,7 +121,8 @@ DEF_CMD(RET, 17, NO_ARGS,                                                   \
     size_t  error = 0;                                                      \
     Elem    a     = StackPop(&(cpu->call_stack), &error);                   \
     CHECK(error != NO_ERROR, "Error during push in call stack", (void)0);   \
-    cpu->pc = cpu->code[a];                                                 \
+    cpu->pc = a;                                                            \
+    printf("cpu->cp = %d\n", cpu->pc);                                      \
 })
 
 #undef NO_ARGS
