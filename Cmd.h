@@ -1,9 +1,21 @@
-DEF_CMD(HLT, 0, 0,                                                  \
+#ifndef NO_ARGS
+#define NO_ARGS     0
+#endif
+
+#ifndef COMMON_ARGS
+#define COMMON_ARGS 1
+#endif
+
+#ifndef JMP_ARGS 
+#define JMP_ARGS    2
+#endif
+
+DEF_CMD(HLT, 0, NO_ARGS,                                            \
 {                                                                   \
     return;                                                         \
 })
 
-DEF_CMD(PUSH, 1, 1,                                                 \
+DEF_CMD(PUSH, 1, COMMON_ARGS,                                       \
 {                                                                   \
     int arg = 0;                                                    \
     if (GetPushArg(&arg, cmd, cpu) != 0)                            \
@@ -11,7 +23,7 @@ DEF_CMD(PUSH, 1, 1,                                                 \
     PUSH(arg);                                                      \
 })
 
-DEF_CMD(ADD, 2, 0,                                                  \
+DEF_CMD(ADD, 2, NO_ARGS,                                            \
 {                                                                   \
     Elem a1 = 0, a2 = 0;                                            \
     POP(a1);                                                        \
@@ -19,7 +31,7 @@ DEF_CMD(ADD, 2, 0,                                                  \
     PUSH(a2 + a1);                                                  \
 })
 
-DEF_CMD(SUB, 3, 0,                                                  \
+DEF_CMD(SUB, 3, NO_ARGS,                                            \
 {                                                                   \
     Elem a1 = 0, a2 = 0;                                            \
     POP(a1);                                                        \
@@ -27,7 +39,7 @@ DEF_CMD(SUB, 3, 0,                                                  \
     PUSH(a2 - a1);                                                  \
 })
 
-DEF_CMD(MUL, 4, 0,                                                  \
+DEF_CMD(MUL, 4, NO_ARGS,                                            \
 {                                                                   \
     Elem a1 = 0, a2 = 0;                                            \
     POP(a1);                                                        \
@@ -35,7 +47,7 @@ DEF_CMD(MUL, 4, 0,                                                  \
     PUSH(a2 * a1);                                                  \
 })
 
-DEF_CMD(DIV, 5, 0,                                                  \
+DEF_CMD(DIV, 5, NO_ARGS,                                            \
 {                                                                   \
     Elem a1 = 0, a2 = 0;                                            \
     POP(a1);                                                        \
@@ -44,14 +56,14 @@ DEF_CMD(DIV, 5, 0,                                                  \
     PUSH(a2 / a1);                                                  \
 })
 
-DEF_CMD(OUT, 6, 0,                                                  \
+DEF_CMD(OUT, 6, NO_ARGS,                                            \
 {                                                                   \
     Elem a1 = 0;                                                    \
     POP(a1);                                                        \
     printf("%d\n", a1);                                             \
 })
 
-DEF_CMD(POP, 7, 1,                                                  \
+DEF_CMD(POP, 7, COMMON_ARGS,                                        \
 {                                                                   \
     Elem a1 = 0;                                                    \
     POP(a1);                                                        \
@@ -66,12 +78,35 @@ DEF_CMD(POP, 7, 1,                                                  \
         cpu->regs[arg] = a1;                                        \
 })
 
-DEF_CMD(DUMP, 8, 0,                                                 \
+DEF_CMD(DUMP, 8, NO_ARGS,                                           \
 {                                                                   \
     DumpCPU(cpu);                                                   \
 })
 
-DEF_CMD(JMP, 9, 2,                                                   \
-{                                                                    \
-    cpu->pc = cpu->code[cpu->pc++];                                  \
+DEF_CMD(JMP, 9, JMP_ARGS,                                           \
+{                                                                   \
+    cpu->pc = cpu->code[cpu->pc++];                                 \
 })
+
+#define DEF_JMP_IF(name, num, oper)                                 \
+DEF_CMD(name, num, JMP_ARGS, {                                      \
+    Elem a1 = 0, a2 = 0;                                            \
+    POP(a1);                                                        \
+    POP(a2);                                                        \
+    if (a2 oper a1)                                                 \
+    {                                                               \
+        cpu->pc += 2;                                               \
+    }                                                               \
+    else                                                            \
+        cpu->pc = cpu->code[cpu->pc++];                             \
+})
+ 
+DEF_JMP_IF(JA,  10, >)
+DEF_JMP_IF(JAE, 11, >=)
+DEF_JMP_IF(JB,  12, <)
+DEF_JMP_IF(JBE, 13, <=)
+DEF_JMP_IF(JE,  14, ==)
+DEF_JMP_IF(JNE, 15, !=)
+
+
+#undef DEF_JMP_IF

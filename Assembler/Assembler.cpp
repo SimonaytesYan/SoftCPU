@@ -253,13 +253,13 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
 #define DEF_CMD(name, num, arg, ...)                                                            \
     if (stricmp(cmd, #name) == 0)                                                               \
     {                                                                                           \
-        if (arg == 1)                                                                           \
+        if (arg == COMMON_ARGS)                                                                 \
         {                                                                                       \
             const char* args = text[line] + number_few_char;                                    \
             if (PutArgsAndCmdInArray(args, *comands, &comand_index, CMD_##name, line) != 0)     \
                 return -1;                                                                      \
         }                                                                                       \
-        else if (arg == 2)                                                                      \
+        else if (arg == JMP_ARGS)                                                               \
         {                                                                                       \
             (*comands)[comand_index++] = num;                                                   \
                                                                                                 \
