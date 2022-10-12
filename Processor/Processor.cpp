@@ -1,5 +1,7 @@
 #include "Processor.h"
 
+#include <math.h>
+
 #define DEF_CMD(name, num, ...) \
     CMD_##name = num,
 

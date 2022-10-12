@@ -122,7 +122,13 @@ DEF_CMD(RET, 17, NO_ARGS,                                                   \
     Elem    a     = StackPop(&(cpu->call_stack), &error);                   \
     CHECK(error != NO_ERROR, "Error during push in call stack", (void)0);   \
     cpu->pc = a;                                                            \
-    printf("cpu->cp = %d\n", cpu->pc);                                      \
+})
+
+DEF_CMD(SQRT, 18, NO_ARGS,                                                  \
+{                                                                           \
+    Elem a = 0;                                                             \
+    POP(a)                                                                  \
+    PUSH(sqrt(a));                                                          \
 })
 
 #undef NO_ARGS
