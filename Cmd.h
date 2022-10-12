@@ -95,7 +95,7 @@ DEF_CMD(name, num, JMP_ARGS, {                                      \
     POP(a2);                                                        \
     if (a2 oper a1)                                                 \
     {                                                               \
-        cpu->pc += 2;                                               \
+        cpu->pc++;                                                  \
     }                                                               \
     else                                                            \
         cpu->pc = cpu->code[cpu->pc++];                             \
@@ -116,10 +116,10 @@ DEF_CMD(CALL, 16, JMP_ARGS,
     cpu->pc = cpu->code[cpu->pc++];                                 \
 })
 
-DEF_CMD(RET, 17, 0,                                                         \
+DEF_CMD(RET, 17, NO_ARGS,                                                   \
 {                                                                           \
     size_t  error = 0;                                                      \
-    Elem a     = StackPop(&(cpu->call_stack), &error);                      \
+    Elem    a     = StackPop(&(cpu->call_stack), &error);                   \
     CHECK(error != NO_ERROR, "Error during push in call stack", (void)0);   \
     cpu->pc = cpu->code[a];                                                 \
 })

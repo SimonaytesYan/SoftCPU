@@ -290,13 +290,14 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
     int comand_index = 0;
     for(int line = 0; line < number_lines; line++)
     {
+        if (text[line] == nullptr)
+            continue;
         char cmd[MAX_COMAND_LEN] = "";
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
 
         if (strlen(cmd) == 0)
             continue;
-
         #include "..\Cmd.h"
         /*else*/
         {
@@ -346,7 +347,9 @@ int GetProgramCompileAndPutInFile(const char* program_file)
 
     Label labels[MAX_LABELS] = {};
 
-    Compilation(&comands, &number_comands, labels, number_lines, text, 1);
+    if (Compilation(&comands, &number_comands, labels, number_lines, text, 1) != 0)
+        return -1;
+    printf("First compilation successful\n");
 
     comands        = nullptr;
     number_comands = 0;
