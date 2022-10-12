@@ -52,7 +52,7 @@ DEF_CMD(DIV, 5, NO_ARGS,                                            \
     Elem a1 = 0, a2 = 0;                                            \
     POP(a1);                                                        \
     POP(a2);                                                        \
-    CHECK(a1 == 0, "Divison by zero\n", (void)-1);                 \
+    CHECK(a1 == 0, "Divison by zero\n", (void)-1);                  \
     PUSH(a2 / a1);                                                  \
 })
 
@@ -108,5 +108,22 @@ DEF_JMP_IF(JBE, 13, <=)
 DEF_JMP_IF(JE,  14, ==)
 DEF_JMP_IF(JNE, 15, !=)
 
-
 #undef DEF_JMP_IF
+
+DEF_CMD(CALL, 16, JMP_ARGS, 
+{                                                                   \
+    StackPush(&cpu->call_stack, cpu->code[cpu->pc]);                \
+    cpu->pc = cpu->code[cpu->pc++];                                 \
+})
+
+DEF_CMD(RET, 17, 0,                                                         \
+{                                                                           \
+    size_t  error = 0;                                                      \
+    Elem a     = StackPop(&(cpu->call_stack), &error);                      \
+    CHECK(error != NO_ERROR, "Error during push in call stack", (void)0);   \
+    cpu->pc = cpu->code[a];                                                 \
+})
+
+#undef NO_ARGS
+#undef COMMON_ARGS
+#undef JMP_ARGS

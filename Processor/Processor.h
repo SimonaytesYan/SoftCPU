@@ -17,6 +17,7 @@ struct CPU
     int   number_comands = 0;
     int   pc             = 0;
     Stack stk            = {};
+    Stack call_stack     = {};
     int regs[REG_N + 1]  = {};
     int ram [RAM_SIZE]   = {};
 };

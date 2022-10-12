@@ -15,8 +15,8 @@ void DumpCPU(CPU* cpu)
     CHECK(cpu == nullptr, "Error in dump\n", (void)0);
 
     LogPrintf("\nnumber_comands = %d\n", cpu->number_comands);
-    LogPrintf("pc             = %d\n", cpu->pc);
-    LogPrintf("code           = %p\n", cpu->code);
+    LogPrintf("pc               = %d\n", cpu->pc);
+    LogPrintf("code             = %p\n", cpu->code);
 
     LogPrintf("regs:\n{\n");
     for(int i = 0; i < REG_N; i++)
@@ -34,7 +34,8 @@ void DumpCPU(CPU* cpu)
 int GetCPUFromFile(CPU* cpu, int comands_number, FILE* executable_file)
 {
     cpu->stk = {};
-    StackCtor(&(cpu->stk), 0);
+    StackCtor(&(cpu->stk),        0);
+    StackCtor(&(cpu->call_stack), 0);
 
     cpu->code = (int*)calloc(comands_number, sizeof(int));
 
@@ -182,7 +183,7 @@ int ExecProgramFromCL(int argc, char* argv[])
     CPU cpu = {};
     if (GetCPUFromFile(&cpu, header.comands_number, executable_file) != 0)
         return -1;
-
+        
     Run(&cpu);
 
     CloseLogFile();
@@ -191,5 +192,4 @@ int ExecProgramFromCL(int argc, char* argv[])
 int main(int argc, char* argv[])
 {
     CHECK(ExecProgramFromCL(argc, argv) != 0, "", -1);
-    system("Pause");
 }
