@@ -62,8 +62,8 @@ DEF_CMD(OUT, 6, 0,                                                  \
 
 DEF_CMD(POP, 7, 1,                                                  \
 {                                                                   \
-    size_t error = 0;                                                  \
-    Elem   a1    = StackPop(&(cpu->stk), &error);                         \
+    size_t error = 0;                                               \
+    Elem   a1    = StackPop(&(cpu->stk), &error);                   \
     CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
                                                                     \
     int arg = 0;                                                    \

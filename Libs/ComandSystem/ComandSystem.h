@@ -1,20 +1,6 @@
 #ifndef __COMAND_SYSTEM_SYM__
 #define __COMAND_SYSTEM_SYM__
 
-/*enum COMANDS
-{
-    CMD_HLT  = 0,
-    CMD_PUSH = 1,
-    CMD_ADD  = 2,
-    CMD_SUB  = 3,
-    CMD_MUL  = 4,
-    CMD_DIV  = 5,
-    CMD_OUT  = 6,
-    CMD_POP  = 7,
-    CMD_DUMP = 8,
-    CMD_JMP  = 9,
-};*/
-
 const int REG_N = 4;
 
 enum REGISTERS

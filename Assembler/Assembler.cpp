@@ -22,7 +22,7 @@ enum COMANDS
 
 const char EXECUTABLE[]  = "a.sy";
 
-const int MAX_COMAND_LENGHT = 100;
+const int MAX_COMAND_LEN = 100;
 
 void DumpLabels(Label* labels)
 {
@@ -63,6 +63,9 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
 
 int CheckSquereBracket(const char* args, int program_line, bool* ram)
 {
+    CHECK(args == nullptr, "args = nullptr", -1);
+    CHECK(ram  == nullptr, "ram = nullptr", -1);
+
     int  opened = 0;
     int  closed = 0; 
     int  i = 0;
@@ -82,9 +85,7 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
             CHECK_SYNTAX(opened == 0, "Closed breaket before opened\n",        -1, program_line);
         }
         else if (closed == 1)
-        {
             CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t', "Any symbols after closed bracket\n", -1, program_line);
-        }
 
         i++;
     }
@@ -93,74 +94,47 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
     return 0;
 }
 
+
+#define REG(c) R##cX      
 //!-----------------
 //!@param [out] comand
 //!@param [out] arg
 //!
 //!-----------------
-int ArgToInt(char* char_arg, int* comand, int* arg1, int* arg2, int arg_number, int line)
+int ArgToInt(char* char_arg, int* comand, int* arg, int line)
 {
     CHECK(char_arg == nullptr, "char_arg = nullptr", -1);
     CHECK(comand   == nullptr, "comand = nullptr",   -1);
-    CHECK(arg1 == nullptr,     "arg1 = nullptr",     -1);
-    CHECK(arg2 == nullptr,     "arg2 = nullptr",     -1);
+    CHECK(arg      == nullptr,     "arg = nullptr",   -1);
 
     if (0 <= char_arg[0] - '0' && char_arg[0] - '0' <= 9)
     {
         CHECK_SYNTAX((*comand & ARG_IMMED) != 0, "Wrong args\n", -1, line);
 
         *comand |= ARG_IMMED;
-        if (arg_number == 1)
-            *arg1 = atoi(char_arg);
-        else
-        {
-            *arg2 = atoi(char_arg);
-            int temp = *arg1;
-            *arg1 = *arg2;
-            *arg2 = temp;
-        }
+        *arg = atoi(char_arg);
     }
     else 
     {
         CHECK_SYNTAX((*comand & ARG_REG) != 0, "Wrong  args\n", -1, line);
         *comand |= ARG_REG;
-
+        
         if (stricmp(char_arg, "rax") == 0)
-        {
-            if (arg_number == 1)
-                *arg1 = RAX;
-            else
-                *arg2 = RAX;
-        }
+            *arg = RAX;
         else if (stricmp(char_arg, "rbx") == 0)
-        {
-            if (arg_number == 1)
-                *arg1 = RBX;
-            else
-                *arg2 = RBX;
-        }
+            *arg = RBX;
         else if (stricmp(char_arg, "rcx") == 0)
-        {
-            if (arg_number == 1)
-                *arg1 = RCX;
-            else
-                *arg2 = RCX;
-        }
+            *arg = RCX;
         else if (stricmp(char_arg, "rdx") == 0)
-        {
-            if (arg_number == 1)
-                *arg1 = RDX;
-            else
-                *arg2 = RDX;
-        }
+            *arg = RDX;
         else
-        {
             CHECK_SYNTAX(1, "Wrong register name\n", -1, line);
-        }
     }
+
+    return 0;
 }
 
-int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
+int ParseArgs(char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
 {
     CHECK(arg1    == nullptr, "arg1 = nullptr",    -1);
     CHECK(arg2    == nullptr, "arg2 = nullptr",    -1);
@@ -168,27 +142,42 @@ int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2,
     CHECK(comands == nullptr, "comands = nullptr", -1);
     CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
 
-    bool ram = false;
+    int  start_len = strlen(args);
+    bool ram       = false;
     if (CheckSquereBracket(args, line, &ram) != 0)
         return -1;
-
     if (ram)
         *comand |= ARG_MEM;
-    
-    char separators[] = " \t+[]";
-    char* arg_1 = strtok((char*)args, separators);
-    char* arg_2 = strtok(nullptr, separators);
 
-    CHECK_SYNTAX((arg_1 == nullptr), "Wrong push args. arg_1 = nullptr\n", -1, line);
+    for(int i = 0; i < start_len; i++)
+        if (args[i] == '[' || args[i] == ']' || args[i] == '+')
+            args[i] = ' ';
+
+    char arg_1[MAX_COMAND_LEN] = {};
+    char arg_2[MAX_COMAND_LEN] = {};
+    int  n = 0;
+    sscanf(args, "%s%n", arg_1, &n);
+    sscanf(args + n, "%s", arg_2);
     
-    ArgToInt(arg_1, comand, arg1, arg2, 1, line);
-    if (arg_2 != nullptr)
-        ArgToInt(arg_2, comand, arg2, arg2, 1, line);
+    ArgToInt(arg_1, comand, arg1, line);
+    if (strlen(arg_2) != 0)
+    {
+        if ((*comand & ARG_REG) != 0)
+        {
+            *arg2 = *arg1;
+            ArgToInt(arg_2, comand, arg1, line);
+        }
+        else
+            ArgToInt(arg_2, comand, arg2, line);
+    }
+    if (ram)
+    {
+        args[1]             = '[';
+        args[start_len - 1] = ']';
+    }
 
     if ((*comand & CMD_MASK) == CMD_POP)
-    {
         CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
-    }
 
     return 0;
 }
@@ -201,7 +190,7 @@ int PutArgsAndCmdInArray(const char* args, int* comands, int* comand_index, int 
     int arg1   = -1;
     int arg2   = -1;
     int comand = comand_type;
-    if (ParseArgs(args, comands, &comand, &arg1, &arg2, line + 1) != 0)
+    if (ParseArgs((char*)args, comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
     comands[(*comand_index)++] = comand;
@@ -262,13 +251,14 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
     return 0;
 }
 
-#define DEF_CMD(name, num, arg, ...)                                                                 \
-    if (stricmp(cmd, #name) == 0)                                                                \
+#define DEF_CMD(name, num, arg, ...)                                                            \
+    if (stricmp(cmd, #name) == 0)                                                               \
     {                                                                                           \
         if (arg == 1)                                                                           \
         {                                                                                       \
             const char* args = text[line] + number_few_char;                                    \
-            CHECK_SYNTAX(PutArgsAndCmdInArray(args, *comands, &comand_index, CMD_##name, line), "Wrong push args", -1, line + 1);    \
+            if (PutArgsAndCmdInArray(args, *comands, &comand_index, CMD_##name, line) != 0)     \
+                return -1;                                                                      \
         }                                                                                       \
         else if (arg == 2)                                                                      \
         {                                                                                       \
@@ -283,7 +273,7 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
                     return -1;                                                                  \
             }                                                                                   \
                                                                                                 \
-            (*comands)[comand_index++] = argum;                                                   \
+            (*comands)[comand_index++] = argum;                                                 \
         }                                                                                       \
         else                                                                                    \
             (*comands)[comand_index++] = num;                                                   \
@@ -301,8 +291,7 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
     int comand_index = 0;
     for(int line = 0; line < number_lines; line++)
     {
-        char cmd[MAX_COMAND_LENGHT] = "";
-
+        char cmd[MAX_COMAND_LEN] = "";
         int number_few_char = 0;
         sscanf(text[line], "%s%n", cmd, &number_few_char);
 

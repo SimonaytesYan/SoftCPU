@@ -116,33 +116,23 @@ int GetPushArg(int* arg, int cmd, CPU* cpu)
 //!-------------------
 int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
 {
-    if (GetArg(arg, cmd, cpu) != 0)
-        return -1;
     if ((cmd & ARG_MEM) != 0)
     {
+        GetArg(arg, cmd, cpu);
+        printf("cmd = %d\n", cmd);
         CHECK(*arg < 0 || *arg >= RAM_SIZE, "\nAttempt to write to wrong addres in ram\n", -1);
         *write_to = ARG_MEM;
     }
     else
     {
         CHECK((cmd & ARG_IMMED) != 0, "\nWrong pop arguments\n", -1);
+        *arg = cpu->code[cpu->pc++];
         CHECK(*arg < 0 || *arg > REG_N, "\nAttempt to write to wrong register in ram\n", -1);
         *write_to = ARG_REG;
     }
 
     return 0;
 }
-
-
-#define CaseCMD(CMD, oper)                                              \
-    case CMD:                                                           \
-        error = 0;                                                      \
-        a1 = StackPop(&(cpu->stk), &error);                             \
-        CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
-        a2 = StackPop(&(cpu->stk), &error);                             \
-        CHECK(error != NO_ERROR, "Error during stack pop", (void)0);    \
-        StackPush(&(cpu->stk), a2 oper a1);                             \
-    break;
 
 #define DEF_CMD(name, num, arg, ...)                                    \
     case CMD_##name:                                                    \
@@ -154,7 +144,6 @@ void Run(CPU* cpu)
     while (cpu->pc < cpu->number_comands)
     {
         int cmd = cpu->code[cpu->pc++];
-        LogPrintf("[%d] = %d\n", cpu->pc - 1, cmd);
 
         switch(cmd & CMD_MASK)
         {   
