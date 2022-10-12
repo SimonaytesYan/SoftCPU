@@ -1,13 +1,17 @@
 #ifndef NO_ARGS
-#define NO_ARGS     0
+    #define NO_ARGS     0
 #endif
 
 #ifndef COMMON_ARGS
-#define COMMON_ARGS 1
+    #define COMMON_ARGS 1
 #endif
 
 #ifndef JMP_ARGS 
-#define JMP_ARGS    2
+    #define JMP_ARGS    2
+#endif
+
+#ifndef meow
+    #define meow printf("*meow*\n" "^_^\n");
 #endif
 
 DEF_CMD(HLT, 0, NO_ARGS,                                            \
@@ -61,6 +65,7 @@ DEF_CMD(OUT, 6, NO_ARGS,                                            \
     Elem a1 = 0;                                                    \
     POP(a1);                                                        \
     printf("%d\n", a1);                                             \
+    meow                                                            \
 })
 
 DEF_CMD(POP, 7, COMMON_ARGS,                                        \
@@ -131,6 +136,19 @@ DEF_CMD(SQRT, 18, NO_ARGS,                                                  \
     PUSH(sqrt(a));                                                          \
 })
 
+DEF_CMD(INFROOTS, 19, NO_ARGS,                                             \
+{                                                                          \
+    printf("Inf roots\n");                                                 \
+    meow                                                                   \
+})
+
+DEF_CMD(NOROOTS, 20, NO_ARGS,
+{
+    printf("No roots\n");                                                   \
+    meow                                                                    \
+})
+
 #undef NO_ARGS
 #undef COMMON_ARGS
 #undef JMP_ARGS
+#undef meow

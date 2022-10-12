@@ -1,4 +1,3 @@
-
 all: create_folders logging assembler_exe processor_exe file_work
 	.\Exe\Comp.exe
 	.\Exe\Start.exe a.sy

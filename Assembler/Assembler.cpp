@@ -94,7 +94,6 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
     return 0;
 }
 
-
 //!-----------------
 //!@param [out] comand
 //!@param [out] arg
@@ -106,7 +105,7 @@ int ArgToInt(char* char_arg, int* comand, int* arg, int line)
     CHECK(comand   == nullptr, "comand = nullptr",   -1);
     CHECK(arg      == nullptr,     "arg = nullptr",   -1);
 
-    if (0 <= char_arg[0] - '0' && char_arg[0] - '0' <= 9)
+    if (0 <= char_arg[0] - '0' && char_arg[0] - '0' <= 9 || char_arg[0] == '-')
     {
         CHECK_SYNTAX((*comand & ARG_IMMED) != 0, "Wrong args\n", -1, line);
 
@@ -151,7 +150,7 @@ int ParseArgs(char* args, int* comands, int* comand, int* arg1, int* arg2, int l
     for(int i = 0; i < start_len; i++)
         if (args[i] == '[' || args[i] == ']' || args[i] == '+')
             args[i] = ' ';
-
+    
     char arg_1[MAX_COMAND_LEN] = {};
     char arg_2[MAX_COMAND_LEN] = {};
     int  n = 0;
