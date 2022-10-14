@@ -115,6 +115,23 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
     return 0;
 }
 
+void DrawRam(CPU* cpu)
+{
+    int max_index = sqrt(RAM_SIZE);
+    for(int i = 0; i < max_index; i++)
+    {
+        for(int j = 0; j < max_index; j++)
+        {
+            if (cpu->ram[i*max_index + j] == 0)
+                printf(".");
+            else
+                printf("#");
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
 #define PUSH(arg) StackPush(&cpu->stk, arg); 
 #define POP(a)                                                          \
 {                                                                       \

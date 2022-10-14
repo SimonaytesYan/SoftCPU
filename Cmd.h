@@ -11,7 +11,7 @@
 #endif
 
 #ifndef meow
-    #define meow printf("*meow*\n" "^_^\n");
+    #define meow printf("*meow*\n");
 #endif
 
 DEF_CMD(HLT, 0, NO_ARGS,                                            \
@@ -78,7 +78,10 @@ DEF_CMD(POP, 7, COMMON_ARGS,                                        \
         return;                                                     \
                                                                     \
     if (write_to == ARG_MEM)                                        \
+    {                                                               \
         cpu->ram[arg] = a1;                                         \
+        DrawRam(cpu);                                               \
+    }                                                               \
     if (write_to == ARG_REG)                                        \
         cpu->regs[arg] = a1;                                        \
 })

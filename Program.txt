@@ -1,3 +1,63 @@
-jmp x
+push 10
+pop rax
 
-x:
+start1:
+    push rax
+    push 0
+    jne end1
+
+    push 10
+    pop rbx
+
+    start2:
+
+        push rbx
+        push 0
+        jne end2
+        
+        push 5
+
+        push rax
+        push 5
+        sub
+        push rax
+        push 5
+        sub
+        mul
+
+        sub
+        sqrt
+        push 5
+        add
+
+        push rbx
+
+        jae next1
+            push rax
+            push 10
+            mul
+
+            push rbx
+            add
+            pop rcx
+
+            push 1
+
+            pop [rcx]
+        next1:
+
+        push rbx
+        push 1
+        sub
+        pop rbx
+
+        jmp start2
+    end2:
+
+    push rax
+    push 1
+    sub
+    pop rax
+
+    jmp start1
+end1:
