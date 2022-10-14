@@ -3,24 +3,8 @@
 
 #define LOGS_TO_FILE
 
-typedef int Elem;
-
-#include "..\Libs\PrintElem.h"
 #include "..\Libs\Logging\Logging.h"
-#include "..\Libs\Stack.h"
 #include "..\Libs\ComandSystem\ComandSystem.h"
-
-const int RAM_SIZE = 10;
-struct CPU
-{
-    int*  code           = nullptr;
-    int   number_comands = 0;
-    int   pc             = 0;
-    Stack stk            = {};
-    Stack call_stack     = {};
-    int regs[REG_N + 1]  = {};
-    int ram [RAM_SIZE]   = {};
-};
 
 int  GetExecFileFromCLArgs(FILE** fp, int argc, char* argv[]);
 

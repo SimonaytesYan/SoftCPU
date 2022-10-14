@@ -1,4 +1,0 @@
-In int GetProgramText(const char*, int*, const char***, char**) in Assembler\Assembler.cpp(49)
-Error while program text open
-In int GetProgramCompileAndPutInFile(const char*) in Assembler\Assembler.cpp(342)
-Error during read text program

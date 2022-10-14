@@ -266,10 +266,8 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
             int         argum  = 0;                                                             \
                                                                                                 \
             if (number == 2)                                                                    \
-            {                                                                                   \
                 if (GetArgsForJmp(args, &argum, labels, line + 1) != 0)                         \
                     return -1;                                                                  \
-            }                                                                                   \
                                                                                                 \
             (*comands)[comand_index++] = argum;                                                 \
         }                                                                                       \
@@ -361,9 +359,4 @@ int GetProgramCompileAndPutInFile(const char* program_file)
 
     free(comands);
     CloseLogFile();
-}
-
-int main()
-{
-    return GetProgramCompileAndPutInFile("Program.txt");
 }

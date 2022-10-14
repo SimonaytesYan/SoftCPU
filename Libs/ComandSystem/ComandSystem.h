@@ -1,6 +1,11 @@
 #ifndef __COMAND_SYSTEM_SYM__
 #define __COMAND_SYSTEM_SYM__
 
+typedef int Elem;
+
+#include "..\PrintElem.h"
+#include "..\Stack.h"
+
 const int REG_N = 4;
 
 enum REGISTERS
@@ -22,6 +27,28 @@ enum CMD_MASKS
 const int SIGNATURE   = 'S' * 256 + 'Y';
 const int ASM_VERSION = 2;
 
+const int RAM_SIZE = 100;
+struct CPU
+{
+    int*  code           = nullptr;
+    int   number_comands = 0;
+    int   pc             = 0;
+    Stack stk            = {};
+    Stack call_stack     = {};
+    int regs[REG_N + 1]  = {};
+    int ram [RAM_SIZE]   = {};
+};
+
+const int MAX_LABELS    = 64;
+const int MAX_LABEL_LEN = 20;
+
+struct Label 
+{
+    char name[MAX_LABEL_LEN] = "";
+    int  cmd_to              = -1;
+};
+
+
 struct Header
 {
     int signature      = -1;
@@ -30,5 +57,7 @@ struct Header
 };
 
 int InitHeader(Header* header, int comands_number);
+
+void DumpCPU(CPU* cpu);
 
 #endif //__COMAND_SYSTEM_SYM__

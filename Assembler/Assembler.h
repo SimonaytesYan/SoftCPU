@@ -3,15 +3,6 @@
 
 #include "..\Libs\ComandSystem\ComandSystem.h"
 
-const int MAX_LABELS    = 64;
-const int MAX_LABEL_LEN = 20;
-
-struct Label 
-{
-    char name[MAX_LABEL_LEN] = "";
-    int  cmd_to              = -1;
-};
-
 void DumpLabels(Label* labels);
 
 //!-----------------
