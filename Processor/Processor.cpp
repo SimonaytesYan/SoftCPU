@@ -123,9 +123,9 @@ void DrawRam(CPU* cpu)
         for(int j = 0; j < max_index; j++)
         {
             if (cpu->ram[i*max_index + j] == 0)
-                printf(".");
+                printf(" .");
             else
-                printf("#");
+                printf(" #");
         }
         printf("\n");
     }

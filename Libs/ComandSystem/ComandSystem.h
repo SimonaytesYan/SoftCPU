@@ -27,7 +27,7 @@ enum CMD_MASKS
 const int SIGNATURE   = 'S' * 256 + 'Y';
 const int ASM_VERSION = 2;
 
-const int RAM_SIZE = 100;
+const int RAM_SIZE = 400;
 struct CPU
 {
     int*  code           = nullptr;

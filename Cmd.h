@@ -83,7 +83,9 @@ DEF_CMD(POP, 7, COMMON_ARGS,                                        \
         DrawRam(cpu);                                               \
     }                                                               \
     if (write_to == ARG_REG)                                        \
+    {                                                               \
         cpu->regs[arg] = a1;                                        \
+    }
 })
 
 DEF_CMD(DUMP, 8, NO_ARGS,                                           \

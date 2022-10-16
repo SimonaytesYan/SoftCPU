@@ -1,0 +1,106 @@
+push 20
+pop rdx
+
+push rdx
+push 1
+sub
+pop rax
+
+start1:
+    push rax
+    push 0
+    jne end1
+
+    push rdx
+    push 1
+    sub
+    pop rbx
+
+    start2:
+        push rbx
+        push 0
+        jne end2
+        
+        push rdx
+        push 2
+        div
+
+        push rdx
+        push 2
+        div
+        mul
+
+        push rax
+        push rdx
+        push 2
+        div
+        sub
+        
+        push rax
+        push rdx
+        push 2
+        div
+        sub
+
+        mul
+
+        sub
+        
+        sqrt
+        pop rcx
+        
+        push rcx
+        push rdx
+        push 2
+        div
+        add
+
+        push rbx
+
+        jae next1
+            push 0
+            push rcx
+            sub
+
+            push rdx
+            push 2
+            div
+            add
+
+            push rbx
+
+            dump
+
+            jbe next2
+                push rax
+                push rdx
+                mul
+
+                push rbx
+                add
+                pop rcx
+                
+                push rcx
+                out
+
+                push 1
+
+                pop [rcx]
+            next2:
+        next1:
+
+        push rbx
+        push 1
+        sub
+        pop rbx
+
+        jmp start2
+    end2:
+
+    push rax
+    push 1
+    sub
+    pop rax
+
+    jmp start1
+end1:

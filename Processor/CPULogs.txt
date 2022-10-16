@@ -1,4 +1,4 @@
-Stack = 0064FCA8
+Stack = 0064F7F8
 Chech status = 2108
 At size_t ChangeStackData(Stack*, int) in Processor\..\Libs\ComandSystem\..\Stack.h(409)
 Negative or poison size
@@ -7,7 +7,7 @@ Size is bigger then capacity
 Pointer to stack.data = nullptr
 Bebug info from stack damaged
 
-Stack = 0064FCE8
+Stack = 0064F838
 Chech status = 2108
 At size_t ChangeStackData(Stack*, int) in Processor\..\Libs\ComandSystem\..\Stack.h(409)
 Negative or poison size
@@ -15,4 +15,8766 @@ Negative or poison capacity
 Size is bigger then capacity
 Pointer to stack.data = nullptr
 Bebug info from stack damaged
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 14
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 13
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 12
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 11
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 10
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 9
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 8
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 7
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 6
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 5
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 4
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 3
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 2
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 19
+	rbx = 1
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 16
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 15
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 14
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 13
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 12
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 11
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 10
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 9
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 8
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 7
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 6
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 5
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 4
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 3
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 2
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 18
+	rbx = 1
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 17
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 16
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 15
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 14
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 13
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 12
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 11
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 10
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 9
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 8
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 7
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 6
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 5
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 4
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 3
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 2
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 17
+	rbx = 1
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 18
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 17
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 16
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 15
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 14
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 13
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 12
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 11
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 10
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 9
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 8
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 7
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 6
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 5
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 4
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 3
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 2
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 16
+	rbx = 1
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 18
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 17
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 16
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 15
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 14
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 13
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 12
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 11
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 10
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 9
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 8
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 7
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 6
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 5
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 4
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 3
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 2
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 15
+	rbx = 1
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 14
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 13
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 12
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 11
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 19
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 18
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 17
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 16
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 15
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 14
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 13
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 12
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 11
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 10
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 9
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 8
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 7
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 6
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 5
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 4
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 3
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 2
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 10
+	rbx = 1
+	rcx = 10
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 0
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 9
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 8
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 7
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 19
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 19
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 18
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 17
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 16
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 15
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 14
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 13
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 12
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 11
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 10
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 9
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 8
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 7
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 6
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 5
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 4
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 3
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 2
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 6
+	rbx = 1
+	rcx = 9
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 1
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 18
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 17
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 16
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 15
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 14
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 13
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 12
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 11
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 10
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 9
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 8
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 7
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 6
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 5
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 4
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 3
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 2
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 5
+	rbx = 1
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 18
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 18
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 17
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 16
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 15
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 14
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 13
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 12
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 11
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 10
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 9
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 8
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 7
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 6
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 5
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 4
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 3
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 2
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 4
+	rbx = 1
+	rcx = 8
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 2
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 17
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 17
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 16
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 15
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 14
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 13
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 12
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 11
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 10
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 9
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 8
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 7
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 6
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 5
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 4
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 3
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 2
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 3
+	rbx = 1
+	rcx = 7
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 3
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 16
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 16
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 15
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 15
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 14
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 13
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 12
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 11
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 10
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 9
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 8
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 7
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 6
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 5
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 4
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 3
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 2
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 2
+	rbx = 1
+	rcx = 6
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 4
+		*[1] = 1
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 14
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 14
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 13
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 13
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 12
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 12
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 11
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 11
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 10
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 10
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 9
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 9
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 8
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 8
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 7
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 7
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 6
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 6
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 5
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 5
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 4
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 4
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 3
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 3
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 2
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 2
+	}
+}
+
+
+number_comands = 125
+pc               = 88
+code             = 001A0CA0
+regs:
+{
+	rax = 1
+	rbx = 1
+	rcx = 4
+	rdx = 20
+}
+void DumpCPU(CPU*) at Libs\ComandSystem\ComandSystem.cpp(34):
+Stack[0064F7F8] "&(cpu->stk)" at int GetCPUFromFile(CPU*, int, FILE*) at Processor\Processor.cpp(18):
+Status: enable
+{
+	size        = 2
+	capacity    = 2
+	data_hash   = 0
+	struct_hash = 0
+	data[001A0EA0]
+	{
+		*[0] = 6
+		*[1] = 1
+	}
+}
 
