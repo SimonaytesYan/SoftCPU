@@ -60,4 +60,6 @@ int InitHeader(Header* header, int comands_number);
 
 void DumpCPU(CPU* cpu);
 
+void DumpLabels(Label* labels);
+
 #endif //__COMAND_SYSTEM_SYM__

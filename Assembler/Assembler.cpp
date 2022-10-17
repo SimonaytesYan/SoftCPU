@@ -24,21 +24,6 @@ const char EXECUTABLE[]  = "a.sy";
 
 const int MAX_COMAND_LEN = 100;
 
-void DumpLabels(Label* labels)
-{
-    if (labels == nullptr)
-        return;
-        
-    for(int i = 0; i < MAX_LABELS/10; i++)
-    {
-        printf("label[%d]\n", i);
-        printf("{\n");
-        printf("\tcmd_to = %d\n", labels[i].cmd_to);
-        printf("\tname   = <%s>\n", labels[i].name);
-        printf("}\n");
-    }
-}
-
 int GetProgramText(const char* program, int* number_lines, const char*** text, char** original_text)
 {
     CHECK(number_lines  == nullptr, "&number_lines = nullptr\n", -1);
@@ -329,10 +314,22 @@ int PutProgramToFile(Header* header, int* comands)
     fclose(executable_file);
 }
 
-int GetProgramCompileAndPutInFile(const char* program_file)
+int CompileProgramFromCL(int argc, char* argv[])
 {
+    CHECK(argv == nullptr, "\nArgv damaged\n",                  -1);
+    CHECK(argc != 2,       "\nWrong number of cmd arguments\n", -1);
+
     CHECK(OpenLogFile("Assembler/AssLogs.txt") != 0, "Error while logs open\n", -1);
 
+    const char* code_file_name = argv[1];
+
+    return GetProgramCompileAndPutInFile(code_file_name);
+
+    CloseLogFile();
+}
+
+int GetProgramCompileAndPutInFile(const char* program_file)
+{
     int          number_lines   = 0;
     const char** text           = nullptr;
     char*        original_text  = nullptr; 
@@ -358,5 +355,4 @@ int GetProgramCompileAndPutInFile(const char* program_file)
     PutProgramToFile(&header, comands);
 
     free(comands);
-    CloseLogFile();
 }

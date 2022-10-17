@@ -153,6 +153,13 @@ DEF_CMD(NOROOTS, 20, NO_ARGS,                                               \
     meow                                                                    \
 })
 
+DEF_CMD(IN, 21, NO_ARGS,                                                    \
+{                                                                           \
+    Elem val = 0;                                                           \
+    scanf("%d", &val);                                                      \
+    PUSH(val);                                                              \
+})
+
 #undef NO_ARGS
 #undef COMMON_ARGS
 #undef JMP_ARGS

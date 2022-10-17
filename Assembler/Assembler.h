@@ -3,8 +3,6 @@
 
 #include "..\Libs\ComandSystem\ComandSystem.h"
 
-void DumpLabels(Label* labels);
-
 //!-----------------
 //!@param [out] index
 //!
@@ -38,5 +36,7 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
 int PutProgramToFile(Header* header, int* comands);
 
 int GetProgramCompileAndPutInFile(const char* program_file);
+
+int CompileProgramFromCL(int argc, char* argv[]);
 
 #endif //__ASSEMBLER_SYM__

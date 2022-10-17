@@ -132,7 +132,7 @@ void DrawRam(CPU* cpu)
     printf("\n");
 }
 
-#define PUSH(arg) StackPush(&cpu->stk, arg); 
+#define PUSH(arg) StackPush(&cpu->stk, arg);
 #define POP(a)                                                          \
 {                                                                       \
     size_t error = 0;                                                   \

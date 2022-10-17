@@ -1,6 +1,6 @@
 #include "Assembler.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-    return GetProgramCompileAndPutInFile("Program.txt");
+    return CompileProgramFromCL(argc, argv);
 }

@@ -13,6 +13,21 @@ int InitHeader(Header* header, int comands_number)
     return 0;
 }
 
+void DumpLabels(Label* labels)
+{
+    if (labels == nullptr)
+        return;
+        
+    for(int i = 0; i < MAX_LABELS/10; i++)
+    {
+        printf("label[%d]\n", i);
+        printf("{\n");
+        printf("\tcmd_to = %d\n", labels[i].cmd_to);
+        printf("\tname   = <%s>\n", labels[i].name);
+        printf("}\n");
+    }
+}
+
 void DumpCPU(CPU* cpu)
 {
     CHECK(cpu == nullptr, "Error in dump\n", (void)0);
