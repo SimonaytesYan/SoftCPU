@@ -26,10 +26,10 @@ void DumpCPU(CPU* cpu)
         LogPrintf("\tr%cx = %d\n", i + 'a', cpu->regs[i + 1]);
     LogPrintf("}\n");
 
-    //LogPrintf("ram:\n{\n");
-    //for(int i = 0; i < RAM_SIZE; i++)
-//        LogPrintf("\t[%d] = %d\n", i, cpu->ram[i]);
-    //LogPrintf("}\n");
+    LogPrintf("ram:\n{\n");
+    for(int i = 0; i < RAM_SIZE; i++)
+        LogPrintf("\t[%d] = %d\n", i, cpu->ram[i]);
+    LogPrintf("}\n");
 
     DUMP_STACK(cpu->stk);
 }

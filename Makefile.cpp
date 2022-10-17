@@ -2,7 +2,7 @@
 
 int main()
 {
-    
+
     system("g++ -c Libs/FileWork/FileWork.cpp");
 
     system("md Exe");
