@@ -1,4 +1,4 @@
-push 20
+push 200
 pop rdx
 
 push rdx
@@ -66,7 +66,7 @@ start1:
                 add
                 pop rcx
 
-                push 1
+                push 16711680
 
                 pop [rcx]
         next2:
@@ -86,3 +86,6 @@ start1:
 
     jmp start1
 end1:
+
+draw
+hlt

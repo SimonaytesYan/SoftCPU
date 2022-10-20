@@ -1,4 +1,5 @@
 #include "Processor.h"
+#include "..\Libs\TXLib.h"
 
 #include <math.h>
 
@@ -117,19 +118,15 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
 
 void DrawRam(CPU* cpu)
 {
-    int max_index = sqrt(RAM_SIZE);
-    for(int i = 0; i < max_index; i++)
+    txCreateWindow(640, 360, true);
+    for(int i = 0; i < 640; i++)
     {
-        for(int j = 0; j < max_index; j++)
+        for(int j = 0; j < 360; j++)
         {
-            if (cpu->ram[i*max_index + j] == 0)
-                printf(" .");
-            else
-                printf(" #");
+            int val = cpu->ram[i*640 + j];
+            txSetPixel(i, j, RGB (val & FI_BYTE, (val / 256) & FI_BYTE, (val / 256 / 256) & FI_BYTE));
         }
-        printf("\n");
-    }
-    printf("\n");
+    }   
 }
 
 #define PUSH(arg) StackPush(&cpu->stk, arg);

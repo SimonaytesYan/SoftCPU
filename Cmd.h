@@ -80,7 +80,6 @@ DEF_CMD(POP, 7, COMMON_ARGS,                                                \
     if (write_to == ARG_MEM)                                                \
     {                                                                       \
         cpu->ram[arg] = a1;                                                 \
-        DrawRam(cpu);                                                       \
     }                                                                       \
     if (write_to == ARG_REG)                                                \
     {                                                                       \
@@ -159,6 +158,11 @@ DEF_CMD(IN, 21, NO_ARGS,                                                    \
     scanf("%d", &val);                                                      \
     PUSH(val);                                                              \
 })
+
+DEF_CMD(DRAW, 22, NO_ARGS,                                                  \
+{                                                                           \
+    DrawRam(cpu);                                                           \
+})                                                                      
 
 #undef NO_ARGS
 #undef COMMON_ARGS

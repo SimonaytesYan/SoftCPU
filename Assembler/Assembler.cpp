@@ -348,6 +348,7 @@ int GetProgramCompileAndPutInFile(const char* program_file)
     comands        = nullptr;
     number_comands = 0;
     Compilation(&comands, &number_comands, labels, number_lines, text, 2);
+    printf("Second compilation successful\n");
     
     Header header = {};
     InitHeader(&header, number_comands);

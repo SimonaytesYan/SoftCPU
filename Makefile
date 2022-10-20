@@ -1,10 +1,8 @@
 all: create_folders logging assembler_exe processor_exe file_work
-	.\Exe\Comp.exe
+	.\Exe\Comp.exe Program.txt
 	.\Exe\Start.exe a.sy
 
 create_folders:
-	mkdir -p Exe
-	mkdir -p Obj
 
 assembler_exe: assembler_o create_folders logging file_work comand_system
 	g++ Assembler\main.cpp Obj\Assembler.o Obj\ComandSystem.o Obj\Logging.o Obj\FileWork.o -o Exe\Comp.exe
