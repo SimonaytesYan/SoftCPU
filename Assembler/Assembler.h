@@ -23,7 +23,7 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
 
 int CheckSquereBracket(const char* args, int program_line);
 
-int ParseArgs(char* args, int* comands, int* comand, int* arg1, int* arg2, int line);
+int ParseArgs(const char* args, int* comands, int* comand, int* arg1, int* arg2, int line);
 
 //!--------------
 //!
@@ -38,5 +38,13 @@ int PutProgramToFile(Header* header, int* comands);
 int GetProgramCompileAndPutInFile(const char* program_file);
 
 int CompileProgramFromCL(int argc, char* argv[]);
+
+int CheckSquereBracket(const char* args, int program_line, bool* ram);
+
+int ArgToInt(char* char_arg, int* comand, int* arg, int line);
+
+int PutArgsAndCmdInArray(const char* args, int* comands, int* comand_index, int comand_type, int line);
+
+int PutJmpArgsAndCmdInArray(int** comands, int* comand_index, int comand_number, int comp_number, const char** text, int line, int number_few_char, Label* labels);
 
 #endif //__ASSEMBLER_SYM__

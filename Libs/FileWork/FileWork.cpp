@@ -24,8 +24,8 @@ int gettext(char *text, size_t size,  FILE *fp)
 
     fread(text, sizeof(char), size, fp);
 
-    int numberLines = 1;
-    int counter = 0;
+    size_t numberLines = 1;
+    size_t counter = 0;
 
     while (text[counter] != '\0')    
     {
@@ -46,9 +46,9 @@ void getlines_from_text(const char **lines, char *text)
     assert(lines  != nullptr);
     assert(text   != nullptr);
 
-    int   n                = 0;
-    int   line_num         = 0;
-    bool  next_is_new_line = false;
+    size_t   n                = 0;
+    size_t   line_num         = 0;
+    bool     next_is_new_line = false;
 
     lines[line_num] = &text[n];
 
@@ -99,11 +99,20 @@ void put_text_to_file(const char *text, FILE *fp, size_t N)
 //! \return File size in bytes
 //!
 //! ----------------------------------------------------
-int get_text_size(const char *file_name)
+size_t get_text_size(const char *file_name)
 {
     assert(file_name != nullptr);
 
     struct stat buff = {};
     stat(file_name, &buff);
+    printf("file size = %llu\n", buff.st_size);
     return buff.st_size;
+
+    /*FILE *fp = NULL;
+    fp = fopen(file_name,"rb");
+    fseek(fp,0,SEEK_END);
+    size_t size = ftell(fp);
+    fclose(fp);
+
+    return size;*/
 }

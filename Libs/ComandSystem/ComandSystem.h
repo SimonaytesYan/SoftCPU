@@ -5,6 +5,7 @@ typedef int Elem;
 
 #include "..\PrintElem.h"
 #include "..\Stack.h"
+#include "..\TXLib.h"
 
 const int REG_N = 4;
 
@@ -27,17 +28,19 @@ enum CMD_MASKS
 const int SIGNATURE   = 'S' * 256 + 'Y';
 const int ASM_VERSION = 2;
 
-const int RAM_SIZE = 230400;
-const int FI_BYTE  = 0xFF;
+const int RAM_SIZE     = 230400;
+const int FI_BYTE      = 0xFF;
+const int WINDOW_HIGHT = 360;
+const int WINDOW_WIDTH = 636;
 struct CPU
 {
-    int*  code           = nullptr;
-    int   number_comands = 0;
-    int   pc             = 0;
-    Stack stk            = {};
-    Stack call_stack     = {};
-    int regs[REG_N + 1]  = {};
-    int ram [RAM_SIZE]   = {};
+    int*  code            = nullptr;
+    int   number_comands  = 0;
+    int   pc              = 0;
+    Stack stk             = {};
+    Stack call_stack      = {};
+    int   regs[REG_N + 1] = {};
+    int   ram [RAM_SIZE]  = {};
 };
 
 const int MAX_LABELS    = 64;
@@ -52,9 +55,9 @@ struct Label
 
 struct Header
 {
-    int signature      = -1;
-    int version        = -1;
-    int comands_number = -1;
+    int    signature      = -1;
+    int    version        = -1;
+    size_t comands_number = -1;
 };
 
 int InitHeader(Header* header, int comands_number);

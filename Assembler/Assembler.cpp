@@ -30,10 +30,11 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
     CHECK(text          == nullptr, "&text = nullptr\n",         -1);
     CHECK(original_text == nullptr, "original_text = nullptr\n", -1);
 
-    FILE* program_file = fopen(program, "r");
+    FILE* program_file = fopen(program, "rb");
     CHECK(program_file == nullptr, "Error while program text open\n", -1);
 
-    int   file_size = get_text_size(program);
+    //size_t file_size =  get_text_size(program);
+    size_t file_size = 4299014584;
     *original_text  = (char*) calloc(file_size + 1, sizeof(char));
     CHECK(*original_text == nullptr, "Error calloc memory to all text\n", -1); 
 
@@ -43,6 +44,7 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
 
     getlines_from_text(*text, *original_text);
 
+    printf("file got\n");
     return 0;
 }
 
@@ -70,7 +72,7 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
             CHECK_SYNTAX(opened == 0, "Closed breaket before opened\n",        -1, program_line);
         }
         else if (closed == 1)
-            CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t', "Any symbols after closed bracket\n", -1, program_line);
+            CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t' && args[i] != '\r', "Any symbols after closed bracket\n", -1, program_line);
 
         i++;
     }
@@ -90,7 +92,7 @@ int ArgToInt(char* char_arg, int* comand, int* arg, int line)
     CHECK(comand   == nullptr, "comand = nullptr",   -1);
     CHECK(arg      == nullptr,     "arg = nullptr",   -1);
 
-    if (0 <= char_arg[0] - '0' && char_arg[0] - '0' <= 9 || char_arg[0] == '-')
+    if ((0 <= char_arg[0] - '0' && char_arg[0] - '0' <= 9) || char_arg[0] == '-')
     {
         CHECK_SYNTAX((*comand & ARG_IMMED) != 0, "Wrong args\n", -1, line);
 
@@ -117,24 +119,31 @@ int ArgToInt(char* char_arg, int* comand, int* arg, int line)
     return 0;
 }
 
-int ParseArgs(char* args, int* comands, int* comand, int* arg1, int* arg2, int line)
+int ParseArgs(const char* arguments, int* comands, int* comand, int* arg1, int* arg2, int line)
 {
-    CHECK(arg1    == nullptr, "arg1 = nullptr",    -1);
-    CHECK(arg2    == nullptr, "arg2 = nullptr",    -1);
-    CHECK(args    == nullptr, "args = nullptr",    -1);
-    CHECK(comands == nullptr, "comands = nullptr", -1);
-    CHECK(comand  == nullptr, "arg1 = nullptr",    -1);
+    CHECK(arg1      == nullptr, "arg1 = nullptr",    -1);
+    CHECK(arg2      == nullptr, "arg2 = nullptr",    -1);
+    CHECK(arguments == nullptr, "args = nullptr",    -1);
+    CHECK(comands   == nullptr, "comands = nullptr", -1);
+    CHECK(comand    == nullptr, "arg1 = nullptr",    -1);
 
-    int  start_len = strlen(args);
-    bool ram       = false;
-    if (CheckSquereBracket(args, line, &ram) != 0)
+    bool   ram       = false;
+
+    if (CheckSquereBracket(arguments, line, &ram) != 0)
         return -1;
     if (ram)
         *comand |= ARG_MEM;
 
-    for(int i = 0; i < start_len; i++)
-        if (args[i] == '[' || args[i] == ']' || args[i] == '+')
+    size_t start_len            = strlen(arguments);
+    char   args[MAX_COMAND_LEN] = {};
+
+    strcpy(args, arguments);
+
+    for(size_t i = 0; i < start_len; i++)
+    {
+        if (args[i] == '[' || args[i] == ']' || args[i] == '+' || args[i] == '\r')
             args[i] = ' ';
+    }
     
     char arg_1[MAX_COMAND_LEN] = {};
     char arg_2[MAX_COMAND_LEN] = {};
@@ -153,11 +162,6 @@ int ParseArgs(char* args, int* comands, int* comand, int* arg1, int* arg2, int l
         else
             ArgToInt(arg_2, comand, arg2, line);
     }
-    if (ram)
-    {
-        args[1]             = '[';
-        args[start_len - 1] = ']';
-    }
 
     if ((*comand & CMD_MASK) == CMD_POP)
         CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
@@ -173,7 +177,7 @@ int PutArgsAndCmdInArray(const char* args, int* comands, int* comand_index, int 
     int arg1   = -1;
     int arg2   = -1;
     int comand = comand_type;
-    if (ParseArgs((char*)args, comands, &comand, &arg1, &arg2, line + 1) != 0)
+    if (ParseArgs(args, comands, &comand, &arg1, &arg2, line + 1) != 0)
         return -1;
 
     comands[(*comand_index)++] = comand;
@@ -201,7 +205,8 @@ int FindLabel(Label* labels, char* name, int* index)
 
 int AddLabel(char* arg, Label* labels, int cmd_index, int line)
 {
-    int length = strlen(arg);
+    size_t length = strlen(arg);
+
     arg[length - 1] = '\0';
     length--;
 
@@ -219,6 +224,8 @@ int AddLabel(char* arg, Label* labels, int cmd_index, int line)
     
     labels[i].cmd_to = cmd_index;
     strcpy(labels[i].name, arg);
+
+    return 0;
 }
 
 int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
@@ -234,6 +241,21 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
     return 0;
 }
 
+int PutJmpArgsAndCmdInArray(int** comands, int* comand_index, int comand_number, int comp_number, const char** text, int line, int number_few_char, Label* labels)
+{
+    (*comands)[(*comand_index)++] = comand_number;
+    
+    const char* args = text[line] + number_few_char;
+    int         argum  = 0;
+
+    if (comp_number == 2)
+        if (GetArgsForJmp(args, &argum, labels, line + 1) != 0)
+            return -1;
+    (*comands)[(*comand_index)++] = argum;
+
+    return 0;
+}
+
 #define DEF_CMD(name, num, arg, ...)                                                            \
     if (stricmp(cmd, #name) == 0)                                                               \
     {                                                                                           \
@@ -245,28 +267,22 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
         }                                                                                       \
         else if (arg == JMP_ARGS)                                                               \
         {                                                                                       \
-            (*comands)[comand_index++] = num;                                                   \
-                                                                                                \
-            const char* args = text[line] + number_few_char;                                    \
-            int         argum  = 0;                                                             \
-                                                                                                \
-            if (number == 2)                                                                    \
-                if (GetArgsForJmp(args, &argum, labels, line + 1) != 0)                         \
-                    return -1;                                                                  \
-                                                                                                \
-            (*comands)[comand_index++] = argum;                                                 \
+            PutJmpArgsAndCmdInArray(comands, &comand_index, num, comp_number, text, line, number_few_char, labels);\
         }                                                                                       \
         else                                                                                    \
+        {                                                                                       \
             (*comands)[comand_index++] = num;                                                   \
+        }                                                                                       \
     } else
 
-int Compilation(int** comands, int* number_comand, Label* labels, int number_lines, const char** text, int number)
+int Compilation(int** comands, int* number_comand, Label* labels, int number_lines, const char** text, int comp_number)
 {
     CHECK(number_comand == nullptr, "number_comand = nullptr\n", -1);
     CHECK(comands       == nullptr, "comands = nullptr\n",       -1);
 
+    printf("%d\n", number_lines);
     *comands = (int*)calloc(number_lines * 3 + 1, sizeof(int));
-
+    
     CHECK(*comands == nullptr, "Error during allocation memory for comands array\n", -1);
 
     int comand_index = 0;
@@ -280,6 +296,7 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
 
         if (strlen(cmd) == 0)
             continue;
+
         #include "..\Cmd.h"
         /*else*/
         {
@@ -293,6 +310,7 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
         }
     }
 
+    printf("cmd_index = %d\n", comand_index);
     *number_comand = comand_index;
 
     return 0;
@@ -302,7 +320,8 @@ int Compilation(int** comands, int* number_comand, Label* labels, int number_lin
 
 int PutProgramToFile(Header* header, int* comands)
 {
-    CHECK(header == nullptr, "Header == nullptr\n", -1);
+    CHECK(header  == nullptr, "Header == nullptr\n", -1);
+    CHECK(comands == nullptr, "Comands == nullptr\n", -1);
 
     FILE* executable_file = fopen(EXECUTABLE, "wb");
 
@@ -312,6 +331,8 @@ int PutProgramToFile(Header* header, int* comands)
     fwrite(comands, sizeof(int), header->comands_number, executable_file);
 
     fclose(executable_file);
+
+    return 0;
 }
 
 int CompileProgramFromCL(int argc, char* argv[])
@@ -323,9 +344,12 @@ int CompileProgramFromCL(int argc, char* argv[])
 
     const char* code_file_name = argv[1];
 
-    return GetProgramCompileAndPutInFile(code_file_name);
-
+    if (GetProgramCompileAndPutInFile(code_file_name) != 0)
+        return -1;
+        
     CloseLogFile();
+    
+    return 0;
 }
 
 int GetProgramCompileAndPutInFile(const char* program_file)
@@ -345,15 +369,24 @@ int GetProgramCompileAndPutInFile(const char* program_file)
         return -1;
     printf("First compilation successful\n");
 
-    comands        = nullptr;
-    number_comands = 0;
-    Compilation(&comands, &number_comands, labels, number_lines, text, 2);
+    if (strlen(labels[0].name) != 0)
+    {
+        comands        = nullptr;
+        number_comands = 0;
+        Compilation(&comands, &number_comands, labels, number_lines, text, 2);
+    }
     printf("Second compilation successful\n");
     
     Header header = {};
     InitHeader(&header, number_comands);
     
-    PutProgramToFile(&header, comands);
+    if (PutProgramToFile(&header, comands) != 0)
+        return -1;
 
-    free(comands);
+    printf("File puted\n");
+
+    if (comands != nullptr)
+        free(comands);
+
+    return 0;
 }

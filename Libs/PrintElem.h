@@ -38,6 +38,8 @@ inline size_t PrintElem(Elem value)
             format[2] = 'l';
             format[3] = 'u';
         break;
+        default:
+            LogPrintf("Wrong format in PrintElem\n");            
     }
     
     LogPrintf(format, value);

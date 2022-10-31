@@ -107,7 +107,7 @@ DEF_CMD(name, num, JMP_ARGS, {                                              \
         cpu->pc++;                                                          \
     }                                                                       \
     else                                                                    \
-        cpu->pc = cpu->code[cpu->pc++];                                     \
+        cpu->pc = cpu->code[cpu->pc];                                     \
 })
 
 DEF_JMP_IF(JA,  10, >)

@@ -66,18 +66,21 @@ inline size_t   StackPush(Stack* stk, Elem value);
 inline size_t   StackResizeDown(Stack* stk);
 inline Elem     StackPop(Stack* stk, size_t *err);
 inline uint64_t GetStructHash(Stack* stk);
-inline size_t   ChangeStackData(Stack* stk, int resizeType);
+inline size_t   ChangeStackData(Stack* stk, size_t resizeType);
 inline void     Rehash(Stack* stk);
 inline void     DoDumpStack(Stack* stk);
 
 #define DUMP_STACK(stk) { DumpStack(&stk, DUMP_LEVEL, __PRETTY_FUNCTION__, __FILE__, __LINE__); }
 
+#ifdef SAVE_MODE
 void DoDumpStack(Stack* stk)
 {
-    #ifdef SAVE_MODE
     DUMP_STACK(*stk);
-    #endif
 }
+#else
+
+void DoDumpStack(Stack*) {}
+#endif
 
 #define OK_ASSERT(stk) {             \
     StackCheck(&stk, __LINE__, __PRETTY_FUNCTION__, __FILE__); \
@@ -142,12 +145,13 @@ void DumpStack(Stack *stk, int deep, const char function[], const char file[], i
                 PrintElem(stk->data[i]);
                 LogPrintf("\n");
             }
-
-            for(i; i < stk->capacity; i++)
+            
+            while(i < stk->capacity)
             {
                 LogPrintf("\t\t[%d] = ", i);
                 PrintElem(stk->data[i]);
                 LogPrintf("\n");
+                i++;
             }
         }
         else
@@ -340,9 +344,9 @@ size_t StackResizeDown(Stack* stk)
     if (stk->size == 0)
         return NO_ERROR;
         
-    if (stk->capacity/(double)stk->size >= FOR_RESIZE*FOR_RESIZE)
+    if (stk->capacity/stk->size >= (size_t)(FOR_RESIZE*FOR_RESIZE))
     {
-        size_t error = ChangeStackData(stk, stk->capacity / FOR_RESIZE);
+        size_t error = ChangeStackData(stk, stk->capacity / (size_t)FOR_RESIZE);
         if (error != 0)
             return error;
         Rehash(stk);
@@ -369,7 +373,7 @@ Elem StackPop(Stack* stk, size_t *err = nullptr)
     Elem result = stk->data[stk->size];
     stk->data[stk->size] = POISON;
 
-    int now_error = StackResizeDown(stk);
+    size_t now_error = StackResizeDown(stk);
     if (err != nullptr)
         *err = now_error;
     if (now_error != NO_ERROR)
@@ -390,6 +394,7 @@ uint64_t GetStructHash(Stack* stk)
     stk->struct_hash = old_hash;
     return now_hash;
     #endif
+    return 0;
 }
 
 void Rehash(Stack* stk)
@@ -404,7 +409,7 @@ void Rehash(Stack* stk)
     #endif
 }
 
-size_t ChangeStackData(Stack* stk, int newCapacity)
+size_t ChangeStackData(Stack* stk, size_t newCapacity)
 {
     OK_ASSERT(*stk);
 

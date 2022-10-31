@@ -1,5 +1,9 @@
 *.exe
 *.o
+*.txt
+*.sy
 .vscode
+*.
+*.bmp
 Exe
 Obj

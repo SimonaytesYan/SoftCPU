@@ -116,24 +116,36 @@ int GetPopArg(int* arg, int* write_to, int cmd, CPU* cpu)
     return 0;
 }
 
-void DrawRam(CPU* cpu)
+int DrawRam(CPU* cpu)
 {
-    txCreateWindow(640, 360, true);
-    for(int i = 0; i < 640; i++)
+    CHECK(cpu == nullptr, "Cpu == nullptr\n", -1);
+    RGBQUAD* buf = txVideoMemory();
+
+    for(int i = 0; i < WINDOW_WIDTH; ++i)
     {
-        for(int j = 0; j < 360; j++)
+        for(int j = 0; j < WINDOW_HIGHT; ++j)
         {
-            int val = cpu->ram[i*640 + j];
-            txSetPixel(i, j, RGB (val & FI_BYTE, (val / 256) & FI_BYTE, (val / 256 / 256) & FI_BYTE));
+            int index = i*WINDOW_HIGHT + j;
+            int val   = cpu->ram[index];
+            
+            RGBQUAD rgb = { (BYTE) (val & FI_BYTE),
+                            (BYTE)((val >> 8) & FI_BYTE),
+                            (BYTE)((val >> 16) & FI_BYTE) };
+
+            buf[i + (WINDOW_HIGHT - j)*WINDOW_WIDTH] = rgb;
         }
-    }   
+    }
+    //Sleep(16);
+    txRedrawWindow();
+
+    return 0;
 }
 
 #define PUSH(arg) StackPush(&cpu->stk, arg);
 #define POP(a)                                                          \
 {                                                                       \
     size_t error = 0;                                                   \
-    Elem non_repeatable_name= StackPop(&(cpu->stk), &error);            \
+    Elem non_repeatable_name = StackPop(&(cpu->stk), &error);           \
     CHECK(error != NO_ERROR, "Error during stack pop\n", (void)0);      \
     a = non_repeatable_name;                                            \
 }                                                                        
@@ -158,6 +170,15 @@ void Run(CPU* cpu)
         }
     }
 }
+
+int InitTXLib()
+{   
+    txBegin();
+    CHECK(txCreateWindow(WINDOW_WIDTH, WINDOW_HIGHT, true) == nullptr, "Error during creating windows to draw", -1);
+
+    return 0;
+}
+
 #undef DEF_CMD
 #undef CaseCMD
 
@@ -177,6 +198,8 @@ int ExecProgramFromCL(int argc, char* argv[])
 
     CPU cpu = {};
     if (GetCPUFromFile(&cpu, header.comands_number, executable_file) != 0)
+        return -1;
+    if (InitTXLib() != 0)
         return -1;
         
     Run(&cpu);
