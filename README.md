@@ -30,9 +30,9 @@ This comand will create executable file a.sy
 ## Comand system
 Comand system in my language is simple:
 There are 23 comands in it. Here they are all:
-* hlt
+* **hlt**
 Use for end program
-* push
+* **push**
 Use to push data in processor stack. You can push to stack:
     + number:
     ```
@@ -54,17 +54,17 @@ Use to push data in processor stack. You can push to stack:
     ```
     push [10 + rax]
     ```
-* add \
+* **add** \
 Pop two elements from stack. Sum up them and push result in stack
-* sub \
+* **sub** \
 Pop two elements from stack. Subtracts the first from the second and push result in stack
-* mul \
+* **mul** \
 Pop two elements from stack. Multiply them and push result in stack
-* div \
+* **div** \
 Pop two elements from stack. Divide the first by the second and push result in stack
-* out \
+* **out** \
 Get element from stack and print it in cosole
-* pop \
+* **pop** \
 Pop element from stack and put it in
     + register:
     ```
@@ -83,9 +83,9 @@ Pop element from stack and put it in
     push [rax + 10]
     ```
     Push in stack data from RAM[rax + 10]
-* dump \
+* **dump** \
 Dump processor structure
-* jmp \
+* **jmp** \
 Analogue go to. Go to label:
 ```
 jmp label1
@@ -123,10 +123,10 @@ label1:
     ```
     This program will out 20.
 
-* call \
+* **call** \
 This function make jump to label and push its own addres to call stack
 
-* ret \
+* **ret** \
 This function make pop from call stack and make jump to addres, derived from call stack 
 
 ### Exemple
@@ -150,22 +150,22 @@ sum_tree_num:
 
 This program output is 6
 
-* sqrt \
+* **sqrt** \
 Pop element from stack, takes the square root and push it in stack
 
-* infroot \
+* **infroot** \
 Print in console "Inf roots":
 ```
 infroots
 ``` 
 
-* noroots \
+* **noroots** \
 Print in console "No roots":
 ```
 noroots
 ``` 
 
-* draw
+* **draw** \
 Use this comand to draw in separate window condition of RAM in the form, described in function DrawRam(). 
 ```
 draw
