@@ -7,6 +7,8 @@ typedef int Elem;
 #include "..\Stack.h"
 #include "..\TXLib.h"
 
+#define BIG_FILE_WORK
+
 const int REG_N = 4;
 
 enum REGISTERS
@@ -26,7 +28,7 @@ enum CMD_MASKS
 };
 
 const int SIGNATURE   = 'S' * 256 + 'Y';
-const int ASM_VERSION = 2;
+const int ASM_VERSION = 3;
 
 const int RAM_SIZE     = 230400;
 const int FI_BYTE      = 0xFF;
@@ -51,7 +53,6 @@ struct Label
     char name[MAX_LABEL_LEN] = "";
     int  cmd_to              = -1;
 };
-
 
 struct Header
 {

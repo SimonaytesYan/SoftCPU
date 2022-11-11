@@ -48,7 +48,6 @@ start1:
 
             add
             
-
             push rdx
             push 2
             div
@@ -69,6 +68,7 @@ start1:
                 push 1
 
                 pop [rcx]
+                draw
         next2:
 
         push rbx

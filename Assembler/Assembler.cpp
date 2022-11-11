@@ -33,8 +33,7 @@ int GetProgramText(const char* program, int* number_lines, const char*** text, c
     FILE* program_file = fopen(program, "rb");
     CHECK(program_file == nullptr, "Error while program text open\n", -1);
 
-    //size_t file_size =  get_text_size(program);
-    size_t file_size = 4299014584;
+    size_t file_size =  get_text_size(program);
     *original_text  = (char*) calloc(file_size + 1, sizeof(char));
     CHECK(*original_text == nullptr, "Error calloc memory to all text\n", -1); 
 
@@ -72,7 +71,8 @@ int CheckSquereBracket(const char* args, int program_line, bool* ram)
             CHECK_SYNTAX(opened == 0, "Closed breaket before opened\n",        -1, program_line);
         }
         else if (closed == 1)
-            CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t' && args[i] != '\r', "Any symbols after closed bracket\n", -1, program_line);
+            CHECK_SYNTAX(args[i] != ' ' && args[i] != '\t' && args[i] != '\r', 
+                         "Any symbols after closed bracket\n", -1, program_line);
 
         i++;
     }
@@ -164,7 +164,8 @@ int ParseArgs(const char* arguments, int* comands, int* comand, int* arg1, int* 
     }
 
     if ((*comand & CMD_MASK) == CMD_POP)
-        CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), "Wrong pop args", -1, line);
+        CHECK_SYNTAX(((*comand & ARG_MEM) == 0) && ((*comand & ARG_IMMED) != 0), 
+                                                    "Wrong pop args", -1, line);
 
     return 0;
 }
@@ -241,17 +242,17 @@ int GetArgsForJmp(const char* text, int* arg, Label* labels, int line)
     return 0;
 }
 
-int PutJmpArgsAndCmdInArray(int** comands, int* comand_index, int comand_number, int comp_number, const char** text, int line, int number_few_char, Label* labels)
+int PutJmpArgsAndCmdInArray(StdArgStruct* f_args,int comp_number, const char** text, int number_few_char, Label* labels)
 {
-    (*comands)[(*comand_index)++] = comand_number;
+    (*f_args->comands)[(*f_args->comand_index)++] = f_args->comand_number;
     
-    const char* args = text[line] + number_few_char;
+    const char* args = text[f_args->line] + number_few_char;
     int         argum  = 0;
 
     if (comp_number == 2)
-        if (GetArgsForJmp(args, &argum, labels, line + 1) != 0)
+        if (GetArgsForJmp(args, &argum, labels, f_args->line + 1) != 0)
             return -1;
-    (*comands)[(*comand_index)++] = argum;
+    (*f_args->comands)[(*f_args->comand_index)++] = argum;
 
     return 0;
 }
@@ -267,7 +268,12 @@ int PutJmpArgsAndCmdInArray(int** comands, int* comand_index, int comand_number,
         }                                                                                       \
         else if (arg == JMP_ARGS)                                                               \
         {                                                                                       \
-            PutJmpArgsAndCmdInArray(comands, &comand_index, num, comp_number, text, line, number_few_char, labels);\
+            StdArgStruct f_args = { comands,                                                    \
+                                   &comand_index,                                               \
+                                    num,                                                        \
+                                    line};                                                      \
+                                                                                                \
+            PutJmpArgsAndCmdInArray(f_args, comp_number, text, number_few_char, labels);        \
         }                                                                                       \
         else                                                                                    \
         {                                                                                       \
@@ -358,7 +364,8 @@ int GetProgramCompileAndPutInFile(const char* program_file)
     const char** text           = nullptr;
     char*        original_text  = nullptr; 
     
-    CHECK(GetProgramText(program_file, &number_lines, &text, &original_text) != 0, "Error during read text program\n", -1);
+    CHECK(GetProgramText(program_file, &number_lines, &text, &original_text) != 0, 
+                                          "Error during read text program\n", -1);
 
     int* comands        = nullptr;
     int  number_comands = 0;

@@ -107,12 +107,4 @@ size_t get_text_size(const char *file_name)
     stat(file_name, &buff);
     printf("file size = %llu\n", buff.st_size);
     return buff.st_size;
-
-    /*FILE *fp = NULL;
-    fp = fopen(file_name,"rb");
-    fseek(fp,0,SEEK_END);
-    size_t size = ftell(fp);
-    fclose(fp);
-
-    return size;*/
 }

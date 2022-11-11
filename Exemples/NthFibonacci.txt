@@ -1,4 +1,4 @@
-push 10
+in
 
 call fib
 out

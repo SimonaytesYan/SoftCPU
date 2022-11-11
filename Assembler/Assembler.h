@@ -3,6 +3,14 @@
 
 #include "..\Libs\ComandSystem\ComandSystem.h"
 
+struct StdArgStruct
+{
+    int**        comands       = nullptr;
+    int*         comand_index  = 0;
+    int          comand_number = 0;
+    int          line          = 0;
+};
+
 //!-----------------
 //!@param [out] index
 //!
@@ -45,6 +53,6 @@ int ArgToInt(char* char_arg, int* comand, int* arg, int line);
 
 int PutArgsAndCmdInArray(const char* args, int* comands, int* comand_index, int comand_type, int line);
 
-int PutJmpArgsAndCmdInArray(int** comands, int* comand_index, int comand_number, int comp_number, const char** text, int line, int number_few_char, Label* labels);
+int PutJmpArgsAndCmdInArray(StdArgStruct f_args, int comp_number, const char** text, int number_few_char, Label* labels);
 
 #endif //__ASSEMBLER_SYM__
