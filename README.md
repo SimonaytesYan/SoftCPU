@@ -31,6 +31,8 @@ This comand will create executable file a.sy
 Comand system in my language is simple.
 There are 23 comands in it. Here they are all:
 (Exemples you can see in folder Exemples)
+* **in**
+Push number from console in stack
 * **hlt**
 Use for end program
 * **push**
@@ -93,7 +95,7 @@ jmp label1
 label1:
 ``` 
 
-* Ñonditional jumps:
+* Conditional jumps:
     + ja
     + jae
     + jb
