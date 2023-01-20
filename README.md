@@ -137,7 +137,7 @@ push 1
 push 2
 push 3
 
-call add_three_num
+call sum_three_num
 
 out
 
