@@ -173,8 +173,8 @@ Use this comand to draw in separate window condition of RAM in the form, describ
 draw
 `
 ## Сommand encoding in binary file ##
-If command has`t any argumenst then it takes 4 bytes.
-If command has argument then informations about command takes 4 bytes, every argument takes 4 bytes. Arguments can be one of tree types:\
+If command has`t any argumenst then it takes 4 bytes.\
+If command has argument then informations about command takes 4 bytes, every argument takes 4 bytes. Arguments can be one of tree types:
 1) Number argument
 2) Register argument
 3) Memory argument
