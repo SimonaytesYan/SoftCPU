@@ -171,4 +171,19 @@ noroots
 Use this comand to draw in separate window condition of RAM in the form, described in function DrawRam(). 
 `
 draw
-` 
+`
+## Сommand encoding in binary file ##
+If command has`t any argumenst then it takes 4 bytes.\
+If command has argument then informations about command takes 4 bytes, every argument takes 4 bytes. Arguments can be one of tree types:\
+1) Number argument
+2) Register argument
+3) Memory argument
+
+If comands has more then one argument, arguments are in the order shown above
+
+| Command area | Meaning                                               |
+|--------------|-------------------------------------------------------|
+| First byte   | Comand number                                         |
+| 9-th bit     | 1 - if command has number argument; 0 - otherwise     |
+| 10-th bit    | 1 - if command has register argument; 0 - otherwise   | 
+| 11-th bit    | 1 - if command has memory area argument; 0 - therwise |
